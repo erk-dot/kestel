@@ -46,7 +46,8 @@
         .divider { width: 50px; height: 3px; background-color: var(--terracotta); margin-bottom: 2rem; }
         #about { background-color: var(--off-white); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .about-image { background: linear-gradient(135deg, var(--light-tan), var(--soft-brown)); height: 380px; display: flex; align-items: center; justify-content: center; color: var(--deep-brown); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; opacity: 0.7; border-radius: 2px; }
+        .about-image { height: 380px; border-radius: 2px; overflow: hidden; }
+        .about-image iframe { width: 100%; height: 100%; border: 0; display: block; }
         .about-text p { color: var(--soft-brown); margin-bottom: 1rem; font-size: 1.05rem; }
         #quick-facts { background-color: var(--warm-cream); }
         .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1rem; }
@@ -90,7 +91,9 @@
     <section id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">Photo coming soon</div>
+                <div class="about-image">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48256.70413515505!2d29.072!3d40.194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15ff7f9d4f4b%3A0x8b44e8e8e8e8e8e8!2sKestel%2C%20Bursa!5e0!3m2!1sen!2str!4v1700000000000!5m2!1sen!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="about-text">
                     <p class="section-label">About the Town</p>
                     <h2 class="section-title">A Town of Character & Charm</h2>
