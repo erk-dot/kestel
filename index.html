@@ -1,147 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kestel, Bursa — A Complete Guide to the Town</title>
-    <meta name="description" content="An independent guide to Kestel, Bursa Province, Turkey. Discover the history, geography, culture, food, and things to do in this historic town at the foot of Uludağ.">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6P51DGX73"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-S6P51DGX73');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9094032428607043" crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --terracotta: #C1440E;
-            --warm-cream: #FAF4E8;
-            --deep-brown: #3B2314;
-            --soft-brown: #8B5E3C;
-            --light-tan: #EDE0C8;
-            --white: #FFFFFF;
-            --off-white: #FDFAF4;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--white); color: var(--deep-brown); line-height: 1.7; }
-        nav { background-color: var(--deep-brown); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        nav .logo { font-family: 'Playfair Display', serif; color: var(--warm-cream); font-size: 1.4rem; letter-spacing: 1px; text-decoration: none; }
-        nav ul { list-style: none; display: flex; gap: 2rem; }
-        nav ul a { color: var(--light-tan); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
-        nav ul a:hover { color: var(--terracotta); }
-        .hero { background: linear-gradient(135deg, var(--deep-brown) 0%, var(--soft-brown) 60%, var(--terracotta) 100%); min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.4; }
-        .hero-content { position: relative; z-index: 1; animation: fadeInUp 1s ease forwards; }
-        .hero-eyebrow { font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; color: var(--light-tan); margin-bottom: 1rem; opacity: 0.8; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); color: var(--warm-cream); line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero h1 em { font-style: italic; color: var(--light-tan); }
-        .hero p { font-size: 1.15rem; color: var(--light-tan); max-width: 580px; margin: 0 auto 2.5rem; font-weight: 300; }
-        .hero-badge { display: inline-block; border: 1px solid rgba(245,236,215,0.4); color: var(--warm-cream); padding: 0.6rem 1.8rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
-        section { padding: 5rem 2rem; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .section-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.75rem; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--deep-brown); margin-bottom: 1.5rem; line-height: 1.2; }
-        .divider { width: 50px; height: 3px; background-color: var(--terracotta); margin-bottom: 2rem; }
-        #about { background-color: var(--off-white); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .about-image { height: 380px; border-radius: 2px; overflow: hidden; }
-        .about-image iframe { width: 100%; height: 100%; border: 0; display: block; }
-        .about-text p { color: var(--soft-brown); margin-bottom: 1rem; font-size: 1.05rem; }
-        #quick-facts { background-color: var(--warm-cream); }
-        .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1rem; }
-        .fact-item { text-align: center; padding: 1.5rem; background-color: var(--white); border-bottom: 3px solid var(--terracotta); }
-        .fact-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--deep-brown); display: block; }
-        .fact-label { font-size: 0.8rem; color: var(--soft-brown); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
-        #explore { background-color: var(--white); }
-        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
-        .topic-card { background-color: var(--off-white); padding: 2rem; border-top: 4px solid var(--terracotta); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; display: block; color: inherit; }
-        .topic-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(59,35,20,0.10); }
-        .topic-icon { font-size: 2rem; margin-bottom: 1rem; }
-        .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--deep-brown); margin-bottom: 0.5rem; }
-        .topic-card p { color: var(--soft-brown); font-size: 0.9rem; margin-bottom: 1rem; }
-        .card-link { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); font-weight: 700; }
-        footer { background-color: var(--deep-brown); color: var(--light-tan); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
-        footer a { color: var(--light-tan); text-decoration: none; }
-        footer a:hover { color: var(--terracotta); }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .cards-grid { grid-template-columns: 1fr; } .facts-grid { grid-template-columns: 1fr 1fr; } nav ul { display: none; } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos – Kestel</title>
+  <meta name="description" content="Wildlife and nature photography from South Florida by Bill Kestel." />
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9094032428607043" crossorigin="anonymous"></script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6P51DGX73"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S6P51DGX73');
+  </script>
+  <style>
+    :root {
+      --bg:        #0d0f0e;
+      --surface:   #161a18;
+      --text:      #e8e4dc;
+      --muted:     #7a8078;
+      --accent:    #c8a96e;
+      --accent-dim:#7a6540;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, sans-serif;
+      --gap: clamp(8px, 1.5vw, 14px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #1e2421;
+    }
+    .site-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .site-subtitle {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .gallery {
+      padding: var(--gap);
+      columns: 3 280px;
+      column-gap: var(--gap);
+      max-width: 1400px;
+      margin: 2rem auto;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: var(--gap);
+      overflow: hidden;
+      border-radius: 3px;
+      cursor: zoom-in;
+      position: relative;
+      background: var(--surface);
+    }
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.92);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.03);
+      filter: brightness(1);
+    }
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem 0.75rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .caption { opacity: 1; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 2px;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.8);
+    }
+    .lightbox-caption {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+      line-height: 1;
+      z-index: 1001;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text);
+      font-size: 1.5rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+    .lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #1e2421;
+      letter-spacing: 0.05em;
+    }
+    footer a { color: var(--accent-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid #2a2f2c;
+      padding: 1rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      z-index: 900;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #cookie-banner.hidden { display: none; }
+    #cookie-banner button {
+      background: var(--accent);
+      color: #0d0f0e;
+      border: none;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    @media (max-width: 600px) {
+      .gallery { columns: 1; }
+      .lightbox-nav { display: none; }
+    }
+    @media (max-width: 900px) {
+      .gallery { columns: 2 200px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-item img { transition: none; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a class="logo" href="index.html">Kestel, Bursa</a>
-        <ul>
-            <li><a href="history.html">History</a></li>
-            <li><a href="geography.html">Geography</a></li>
-            <li><a href="things-to-do.html">Things To Do</a></li>
-            <li><a href="culture.html">Culture & Food</a></li>
-            <li><a href="getting-there.html">Getting There</a></li>
-        </ul>
-    </nav>
-    <section class="hero">
-        <div class="hero-content">
-            <p class="hero-eyebrow">Bursa Province, Turkey</p>
-            <h1>Discover<br><em>Kestel</em></h1>
-            <p>A historic town nestled at the foot of the Uludağ mountains, 14 km east of Bursa — where Byzantine castles meet Ottoman tradition and modern community life.</p>
-            <span class="hero-badge">Explore the Town</span>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48256.70413515505!2d29.072!3d40.194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15ff7f9d4f4b%3A0x8b44e8e8e8e8e8e8!2sKestel%2C%20Bursa!5e0!3m2!1sen!2str!4v1700000000000!5m2!1sen!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="about-text">
-                    <p class="section-label">About the Town</p>
-                    <h2 class="section-title">A Town of Character & Charm</h2>
-                    <div class="divider"></div>
-                    <p>Kestel is a district and municipality of Bursa Province in northwestern Turkey, located 14 km east of Bursa city center on the road to İnegöl. With the forested slopes of Uludağ rising to the south and the broad Bursa plain stretching to the north, the town occupies one of the most naturally beautiful settings in the Marmara region.</p>
-                    <p>Home to over 74,000 residents spread across 35 neighbourhoods, Kestel has grown steadily from a quiet frontier settlement into a thriving district of greater Bursa. It retains a strong community identity, a passion for local produce and food traditions, and an accessibility that makes it an easy and rewarding destination for visitors to the Bursa area.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="quick-facts">
-        <div class="container">
-            <p class="section-label">At a Glance</p>
-            <h2 class="section-title">Kestel by the Numbers</h2>
-            <div class="divider"></div>
-            <div class="facts-grid">
-                <div class="fact-item"><span class="fact-number">74,109</span><div class="fact-label">Population (2022)</div></div>
-                <div class="fact-item"><span class="fact-number">396 km²</span><div class="fact-label">Total Area</div></div>
-                <div class="fact-item"><span class="fact-number">35</span><div class="fact-label">Neighbourhoods</div></div>
-                <div class="fact-item"><span class="fact-number">14 km</span><div class="fact-label">From Bursa Center</div></div>
-            </div>
-        </div>
-    </section>
-    <section id="explore">
-        <div class="container">
-            <p class="section-label">Explore Kestel</p>
-            <h2 class="section-title">Everything You Need to Know</h2>
-            <div class="divider"></div>
-            <div class="cards-grid">
-                <a class="topic-card" href="history.html"><div class="topic-icon"></div><h3>History</h3><p>From Byzantine frontier fortress to Ottoman stronghold to modern municipality — Kestel's layered past spans over seven centuries of continuous settlement.</p><span class="card-link">Read More →</span></a>
-                <a class="topic-card" href="geography.html"><div class="topic-icon"></div><h3>Geography</h3><p>Nestled between Uludağ's forested slopes and the fertile Bursa plain, Kestel's landscape offers a striking mix of mountain, forest, and agricultural land.</p><span class="card-link">Read More →</span></a>
-                <a class="topic-card" href="things-to-do.html"><div class="topic-icon"></div><h3>Things To Do</h3><p>Visit Kestel Castle, explore local markets, walk forest trails, or use the town as a base for day trips to Bursa's world-class attractions nearby.</p><span class="card-link">Read More →</span></a>
-                <a class="topic-card" href="culture.html"><div class="topic-icon"></div><h3>Culture & Food</h3><p>İskender kebap, fresh peaches, candied chestnuts, and the warm ritual of çay — Kestel shares in Bursa's rich culinary and cultural traditions.</p><span class="card-link">Read More →</span></a>
-                <a class="topic-card" href="getting-there.html"><div class="topic-icon"></div><h3>Getting There</h3><p>Kestel is well connected by road and public transport from Bursa city center, and easily reached from Istanbul by bus, ferry, or car.</p><span class="card-link">Read More →</span></a>
-                <a class="topic-card" href="privacy.html"><div class="topic-icon"></div><h3>Privacy Policy</h3><p>Information about how Kestel.com handles data, cookies, and third-party services including Google Analytics and Google AdSense.</p><span class="card-link">Read More →</span></a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>© 2026 Kestel.com — An independent guide to Kestel, Bursa, Turkey &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
-    <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; background-color:#3B2314; color:#EDE0C8; padding:1rem 2rem; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; z-index:9999; font-family:Lato,sans-serif; font-size:0.9rem;">
-        <p style="margin:0; color:#EDE0C8; font-size:0.9rem;">This site uses cookies from Google Analytics and Google AdSense to analyse traffic and serve ads. By continuing to use this site you accept our use of cookies. <a href="privacy.html" style="color:#C1440E; text-decoration:underline;">Learn more</a></p>
-        <button onclick="acceptCookies()" style="background-color:#C1440E; color:#FDFAF4; border:none; padding:0.5rem 1.5rem; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; cursor:pointer; white-space:nowrap; font-family:Lato,sans-serif;">Accept</button>
+  <header>
+    <p class="site-eyebrow">South Florida</p>
+    <h1 class="site-title">Photos</h1>
+    <p class="site-subtitle">Wildlife &amp; nature — by Bill Kestel</p>
+  </header>
+  <main>
+    <div class="gallery" id="gallery">
+      <div class="gallery-item" data-index="0">
+        <img src="photos/web/sunset-coastal-01.jpg" alt="Fiery red sunset over coastal water with birds in flight" loading="lazy" />
+        <span class="caption">Coastal Sunset</span>
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="photos/web/ibis-flock-01.jpg" alt="White ibis flock feeding on a mudflat" loading="lazy" />
+        <span class="caption">Ibis Flock</span>
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="photos/web/egyptian-goose-pair.jpg" alt="Two Egyptian geese facing each other by the water" loading="lazy" />
+        <span class="caption">Egyptian Geese</span>
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="photos/web/ibis-flock-02.jpg" alt="White ibis flock on a mudflat with cattails in foreground" loading="lazy" />
+        <span class="caption">Ibis at Low Tide</span>
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="photos/web/wood-stork-egret-01.jpg" alt="Wood storks and great egret feeding at golden hour" loading="lazy" />
+        <span class="caption">Wood Storks &amp; Egret</span>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="photos/web/wood-stork-reeds.jpg" alt="Wood stork standing among reeds reflected in still water" loading="lazy" />
+        <span class="caption">Wood Stork</span>
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="photos/web/hawk-stop-sign.jpg" alt="Red-tailed hawk perched on top of a stop sign" loading="lazy" />
+        <span class="caption">Hawk on Stop Sign</span>
+      </div>
+      <div class="gallery-item" data-index="7">
+        <img src="photos/web/tricolored-heron.jpg" alt="Tricolored heron partially hidden in marsh grass" loading="lazy" />
+        <span class="caption">Tricolored Heron</span>
+      </div>
+      <div class="gallery-item" data-index="8">
+        <img src="photos/web/pelican-pair.jpg" alt="Two brown pelicans perched on dock pilings against blue sky" loading="lazy" />
+        <span class="caption">Brown Pelicans</span>
+      </div>
+      <div class="gallery-item" data-index="9">
+        <img src="photos/web/vulture-tree.jpg" alt="Turkey vultures roosting on a dead tree against blue sky" loading="lazy" />
+        <span class="caption">Turkey Vultures</span>
+      </div>
+      <div class="gallery-item" data-index="10">
+        <img src="photos/web/bridge-underpass.jpg" alt="Geometric view under a concrete bridge with Miami skyline visible" loading="lazy" />
+        <span class="caption">Under the Bridge</span>
+      </div>
+      <div class="gallery-item" data-index="11">
+        <img src="photos/web/sunset-bay-reflection.jpg" alt="Calm bay at sunset with island silhouette and vivid sky reflection" loading="lazy" />
+        <span class="caption">Bay Reflection</span>
+      </div>
+      <div class="gallery-item" data-index="12">
+        <img src="photos/web/sunset-stormy-dock.jpg" alt="Dramatic stormy sunset viewed from a dock" loading="lazy" />
+        <span class="caption">Stormy Sunset</span>
+      </div>
+      <div class="gallery-item" data-index="13">
+        <img src="photos/web/iguana-waterside.jpg" alt="Green iguana basking on grass beside the water" loading="lazy" />
+        <span class="caption">Green Iguana</span>
+      </div>
+      <div class="gallery-item" data-index="14">
+        <img src="photos/web/sunset-dock-people.jpg" alt="Vivid orange and purple sunset over water with people gathered at a dock" loading="lazy" />
+        <span class="caption">Sunset Gathering</span>
+      </div>
+      <div class="gallery-item" data-index="15">
+        <img src="photos/web/miami-skyline-sunset.jpg" alt="Miami port skyline silhouetted against a deep orange sunset" loading="lazy" />
+        <span class="caption">Miami Skyline</span>
+      </div>
+      <div class="gallery-item" data-index="16">
+        <img src="photos/web/miami-bayfront-sunset-01.jpg" alt="Bayfront promenade with palm trees and Miami skyline at sunset" loading="lazy" />
+        <span class="caption">Bayfront at Sunset</span>
+      </div>
+      <div class="gallery-item" data-index="17">
+        <img src="photos/web/miami-bayfront-sunset-02.jpg" alt="Bayfront path at sunset with bridge and palm trees" loading="lazy" />
+        <span class="caption">Bayfront Path</span>
+      </div>
+      <div class="gallery-item" data-index="18">
+        <img src="photos/web/red-crowned-parrots.jpg" alt="Two red-crowned parrots perched at the top of a palm tree" loading="lazy" />
+        <span class="caption">Red-Crowned Parrots</span>
+      </div>
     </div>
-    <script>
-        function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; }
-        if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'flex'; }
-    </script>
+  </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lb-close" aria-label="Close">&#x2715;</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous photo">&#8592;</button>
+    <div class="lightbox-inner">
+      <img id="lb-img" src="" alt="" />
+      <p class="lightbox-caption" id="lb-caption"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next photo">&#8594;</button>
+  </div>
+  <div id="cookie-banner" role="region" aria-label="Cookie notice">
+    <span>This site uses cookies for analytics and advertising. <a href="privacy.html">Privacy policy</a>.</span>
+    <button id="cookie-accept">Accept</button>
+  </div>
+  <footer>
+    <p>Photography &copy; <span id="yr"></span> Bill Kestel &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const banner = document.getElementById('cookie-banner');
+    if (localStorage.getItem('ck_accept')) banner.classList.add('hidden');
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ck_accept', '1');
+      banner.classList.add('hidden');
+    });
+    const items    = Array.from(document.querySelectorAll('.gallery-item'));
+    const lightbox = document.getElementById('lightbox');
+    const lbImg    = document.getElementById('lb-img');
+    const lbCap    = document.getElementById('lb-caption');
+    let current    = 0;
+    function openLightbox(index) {
+      current = index;
+      const item = items[index];
+      lbImg.src  = item.querySelector('img').src;
+      lbImg.alt  = item.querySelector('img').alt;
+      lbCap.textContent = item.querySelector('.caption').textContent;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    function navigate(dir) {
+      current = (current + dir + items.length) % items.length;
+      openLightbox(current);
+    }
+    items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
+    document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  </script>
 </body>
 </html>
