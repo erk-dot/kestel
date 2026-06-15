@@ -63,12 +63,50 @@
       color: var(--muted);
       letter-spacing: 0.05em;
     }
+    /* Filter buttons */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1.5rem 1rem 0.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--accent-dim);
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0d0f0e;
+      font-weight: 600;
+    }
+    .filter-count {
+      font-size: 0.65rem;
+      opacity: 0.7;
+      margin-left: 0.3em;
+    }
+    /* Gallery */
     .gallery {
       padding: var(--gap);
       columns: 3 280px;
       column-gap: var(--gap);
       max-width: 1400px;
-      margin: 2rem auto;
+      margin: 1.5rem auto;
     }
     .gallery-item {
       break-inside: avoid;
@@ -78,6 +116,10 @@
       cursor: zoom-in;
       position: relative;
       background: var(--surface);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .gallery-item.hidden {
+      display: none;
     }
     .gallery-item img {
       display: block;
@@ -105,6 +147,16 @@
       transition: opacity 0.3s ease;
     }
     .gallery-item:hover .caption { opacity: 1; }
+    /* No results */
+    .no-results {
+      display: none;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 3rem 1rem;
+      letter-spacing: 0.05em;
+    }
+    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -217,6 +269,8 @@
     @media (max-width: 600px) {
       .gallery { columns: 1; }
       .lightbox-nav { display: none; }
+      .filters { gap: 0.35rem; }
+      .filter-btn { font-size: 0.65rem; padding: 0.35rem 0.75rem; }
     }
     @media (max-width: 900px) {
       .gallery { columns: 2 200px; }
@@ -233,84 +287,604 @@
     <p class="site-subtitle">Wildlife &amp; nature — by Bill Kestel</p>
   </header>
   <main>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="birds">Birds</button>
+      <button class="filter-btn" data-filter="reptiles">Reptiles</button>
+      <button class="filter-btn" data-filter="sunsets">Sunsets</button>
+      <button class="filter-btn" data-filter="sunrises">Sunrises</button>
+      <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+      <button class="filter-btn" data-filter="urban">Urban / Miami</button>
+    </div>
     <div class="gallery" id="gallery">
-      <div class="gallery-item" data-index="0">
-        <img src="photos/web/sunset-coastal-01.jpg" alt="Fiery red sunset over coastal water with birds in flight" loading="lazy" />
-        <span class="caption">Coastal Sunset</span>
+      <!-- BIRDS -->
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/sandhill-crane-portrait-blur.jpg" alt="Sandhill crane portrait close-up" loading="lazy" />
+        <span class="caption">Sandhill Crane</span>
       </div>
-      <div class="gallery-item" data-index="1">
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/cormorants-channel-marker-pilings.jpg" alt="Cormorants perched on channel marker pilings" loading="lazy" />
+        <span class="caption">Cormorants</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
         <img src="photos/web/ibis-flock-01.jpg" alt="White ibis flock feeding on a mudflat" loading="lazy" />
         <span class="caption">Ibis Flock</span>
       </div>
-      <div class="gallery-item" data-index="2">
-        <img src="photos/web/egyptian-goose-pair.jpg" alt="Two Egyptian geese facing each other by the water" loading="lazy" />
-        <span class="caption">Egyptian Geese</span>
-      </div>
-      <div class="gallery-item" data-index="3">
+      <div class="gallery-item" data-categories="birds">
         <img src="photos/web/ibis-flock-02.jpg" alt="White ibis flock on a mudflat with cattails in foreground" loading="lazy" />
         <span class="caption">Ibis at Low Tide</span>
       </div>
-      <div class="gallery-item" data-index="4">
-        <img src="photos/web/wood-stork-egret-01.jpg" alt="Wood storks and great egret feeding at golden hour" loading="lazy" />
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/ibis-flock-mudflat-01.jpg" alt="White ibis flock on mudflat" loading="lazy" />
+        <span class="caption">Ibis Mudflat</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/ibis-flock-mudflat-02.jpg" alt="White ibis flock feeding on mudflat" loading="lazy" />
+        <span class="caption">Ibis Feeding</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/egyptian-geese-pair.jpg" alt="Two Egyptian geese facing each other by the water" loading="lazy" />
+        <span class="caption">Egyptian Geese</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/wood-storks-egret-feeding.jpg" alt="Wood storks and great egret feeding at golden hour" loading="lazy" />
         <span class="caption">Wood Storks &amp; Egret</span>
       </div>
-      <div class="gallery-item" data-index="5">
-        <img src="photos/web/wood-stork-reeds.jpg" alt="Wood stork standing among reeds reflected in still water" loading="lazy" />
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/wood-stork-reeds-reflection.jpg" alt="Wood stork standing among reeds reflected in still water" loading="lazy" />
         <span class="caption">Wood Stork</span>
       </div>
-      <div class="gallery-item" data-index="6">
-        <img src="photos/web/hawk-stop-sign.jpg" alt="Red-tailed hawk perched on top of a stop sign" loading="lazy" />
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/wood-stork-egret-01.jpg" alt="Wood stork and egret wading" loading="lazy" />
+        <span class="caption">Wood Stork &amp; Egret</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/red-shouldered-hawk-stop-sign.jpg" alt="Red-shouldered hawk perched on a stop sign" loading="lazy" />
         <span class="caption">Hawk on Stop Sign</span>
       </div>
-      <div class="gallery-item" data-index="7">
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/hawk-stop-sign.jpg" alt="Hawk perched on top of a stop sign" loading="lazy" />
+        <span class="caption">Hawk</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/red-crowned-parrots.jpg" alt="Red-crowned parrots perched in a tree" loading="lazy" />
+        <span class="caption">Red-Crowned Parrots</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/red-crowned-parrots-palm.jpg" alt="Two red-crowned parrots perched at the top of a palm tree" loading="lazy" />
+        <span class="caption">Parrots in Palm</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/parrot-palm-stump.jpg" alt="Parrot perched on a palm stump" loading="lazy" />
+        <span class="caption">Parrot</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/chestnut-fronted-macaws-tree.jpg" alt="Two chestnut-fronted macaws perched in a tree" loading="lazy" />
+        <span class="caption">Chestnut-Fronted Macaws</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/muscovy-duck-nesting-eggs.jpg" alt="Muscovy duck nesting on eggs" loading="lazy" />
+        <span class="caption">Muscovy Duck</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-portrait-closeup.jpg" alt="Peacock portrait close-up showing iridescent plumage" loading="lazy" />
+        <span class="caption">Peacock Portrait</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-fan-display-01.jpg" alt="Peacock displaying full fan of tail feathers" loading="lazy" />
+        <span class="caption">Peacock Display</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-fan-display-02.jpg" alt="Peacock fan tail display from behind" loading="lazy" />
+        <span class="caption">Peacock Fan</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-tail-feathers-side.jpg" alt="Peacock tail feathers from the side" loading="lazy" />
+        <span class="caption">Peacock Tail</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-blue-neck.jpg" alt="Peacock showing vivid blue neck plumage" loading="lazy" />
+        <span class="caption">Peacock Blue</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-full-tail.jpg" alt="Peacock with full tail spread" loading="lazy" />
+        <span class="caption">Peacock Full Tail</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/peacock-parking-lot.jpg" alt="Peacock walking through a parking lot" loading="lazy" />
+        <span class="caption">Urban Peacock</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/little-blue-heron-reflection.jpg" alt="Little blue heron reflected in still water" loading="lazy" />
+        <span class="caption">Little Blue Heron</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/black-crowned-night-heron-perched.jpg" alt="Black-crowned night heron perched on a branch" loading="lazy" />
+        <span class="caption">Black-Crowned Night Heron</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/yellow-crowned-night-heron.jpg" alt="Yellow-crowned night heron perched" loading="lazy" />
+        <span class="caption">Yellow-Crowned Night Heron</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/yellow-crowned-night-heron-mangroves.jpg" alt="Yellow-crowned night heron in mangroves" loading="lazy" />
+        <span class="caption">Night Heron in Mangroves</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/yellow-crowned-night-heron-reflection.jpg" alt="Yellow-crowned night heron reflected in water" loading="lazy" />
+        <span class="caption">Night Heron Reflection</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
         <img src="photos/web/tricolored-heron.jpg" alt="Tricolored heron partially hidden in marsh grass" loading="lazy" />
         <span class="caption">Tricolored Heron</span>
       </div>
-      <div class="gallery-item" data-index="8">
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/common-gallinule-swimming.jpg" alt="Common gallinule swimming in still water" loading="lazy" />
+        <span class="caption">Common Gallinule</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/limpkin-hunting-shallow-water.jpg" alt="Limpkin hunting in shallow water" loading="lazy" />
+        <span class="caption">Limpkin</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/great-egret-stalking-reflection.jpg" alt="Great egret stalking prey with reflection in still water" loading="lazy" />
+        <span class="caption">Great Egret</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/great-egret-wetland-reflection.jpg" alt="Great egret standing in wetland with reflection" loading="lazy" />
+        <span class="caption">Egret Wetland</span>
+      </div>
+      <div class="gallery-item" data-categories="birds landscapes">
+        <img src="photos/web/great-egret-lighthouse.jpg" alt="Great egret near the Cape Florida lighthouse" loading="lazy" />
+        <span class="caption">Egret at Lighthouse</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/great-egret-fence-perched.jpg" alt="Great egret perched on a fence" loading="lazy" />
+        <span class="caption">Egret on Fence</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/egret-roost-bare-tree-waterway.jpg" alt="Large flock of egrets roosting in a bare tree over a waterway" loading="lazy" />
+        <span class="caption">Egret Roost</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/green-heron-reflection.jpg" alt="Green heron reflected in still water" loading="lazy" />
+        <span class="caption">Green Heron</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/red-tailed-hawk-branch.jpg" alt="Red-tailed hawk perched on a branch" loading="lazy" />
+        <span class="caption">Red-Tailed Hawk</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
         <img src="photos/web/pelican-pair.jpg" alt="Two brown pelicans perched on dock pilings against blue sky" loading="lazy" />
         <span class="caption">Brown Pelicans</span>
       </div>
-      <div class="gallery-item" data-index="9">
-        <img src="photos/web/vulture-tree.jpg" alt="Turkey vultures roosting on a dead tree against blue sky" loading="lazy" />
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/pelicans-on-pilings.jpg" alt="Pelicans perched on bay pilings" loading="lazy" />
+        <span class="caption">Pelicans on Pilings</span>
+      </div>
+      <div class="gallery-item" data-categories="birds sunsets">
+        <img src="photos/web/pelicans-flight-sunset.jpg" alt="Pelicans in flight at sunset" loading="lazy" />
+        <span class="caption">Pelicans at Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/turkey-vultures-brush-pile.jpg" alt="Turkey vultures gathered on a brush pile" loading="lazy" />
         <span class="caption">Turkey Vultures</span>
       </div>
-      <div class="gallery-item" data-index="10">
-        <img src="photos/web/bridge-underpass.jpg" alt="Geometric view under a concrete bridge with Miami skyline visible" loading="lazy" />
-        <span class="caption">Under the Bridge</span>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/turkey-vultures-wings-spread-tree.jpg" alt="Turkey vultures spreading wings in a dead tree" loading="lazy" />
+        <span class="caption">Vultures Spreading Wings</span>
       </div>
-      <div class="gallery-item" data-index="11">
-        <img src="photos/web/sunset-bay-reflection.jpg" alt="Calm bay at sunset with island silhouette and vivid sky reflection" loading="lazy" />
-        <span class="caption">Bay Reflection</span>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/vultures-dead-tree.jpg" alt="Turkey vultures roosting on a dead tree" loading="lazy" />
+        <span class="caption">Vultures Roosting</span>
       </div>
-      <div class="gallery-item" data-index="12">
-        <img src="photos/web/sunset-stormy-dock.jpg" alt="Dramatic stormy sunset viewed from a dock" loading="lazy" />
-        <span class="caption">Stormy Sunset</span>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/vulture-tree.jpg" alt="Vulture perched in a tree" loading="lazy" />
+        <span class="caption">Vulture</span>
       </div>
-      <div class="gallery-item" data-index="13">
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/anhinga-wings-spread.jpg" alt="Anhinga spreading wings to dry" loading="lazy" />
+        <span class="caption">Anhinga</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/anhinga-perched-rock-water.jpg" alt="Anhinga perched on a rock over water" loading="lazy" />
+        <span class="caption">Anhinga on Rock</span>
+      </div>
+      <div class="gallery-item" data-categories="birds sunrises">
+        <img src="photos/web/sunrise-orange-birds-distant.jpg" alt="Distant birds silhouetted against an orange sunrise sky" loading="lazy" />
+        <span class="caption">Birds at Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/screech-owl-tree-cavity.jpg" alt="Eastern screech owl peering from a tree cavity" loading="lazy" />
+        <span class="caption">Screech Owl</span>
+      </div>
+      <!-- REPTILES -->
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/american-crocodile-closeup.jpg" alt="American crocodile close-up portrait" loading="lazy" />
+        <span class="caption">American Crocodile</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/american-crocodile-bank-closeup.jpg" alt="American crocodile resting on a mossy bank" loading="lazy" />
+        <span class="caption">Crocodile on Bank</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/american-crocodile-mouth-open-rock.jpg" alt="American crocodile with mouth open basking on a rock" loading="lazy" />
+        <span class="caption">Crocodile Basking</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/american-crocodile-jaws-open-closeup.jpg" alt="American crocodile jaws wide open close-up" loading="lazy" />
+        <span class="caption">Crocodile Jaws</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/two-crocodiles-basking-shoreline.jpg" alt="Two crocodiles basking together at the water's edge" loading="lazy" />
+        <span class="caption">Two Crocodiles</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/crocodile-entering-water-rocky-bank.jpg" alt="Crocodile entering the water from a rocky bank" loading="lazy" />
+        <span class="caption">Crocodile Entering Water</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/alligator-basking-bank.jpg" alt="American alligator basking on a grassy bank" loading="lazy" />
+        <span class="caption">Alligator Basking</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
+        <img src="photos/web/alligator-mouth-open-grass-bank.jpg" alt="Large alligator with mouth open on a grass bank" loading="lazy" />
+        <span class="caption">Alligator Open Mouth</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles">
         <img src="photos/web/iguana-waterside.jpg" alt="Green iguana basking on grass beside the water" loading="lazy" />
         <span class="caption">Green Iguana</span>
       </div>
-      <div class="gallery-item" data-index="14">
-        <img src="photos/web/sunset-dock-people.jpg" alt="Vivid orange and purple sunset over water with people gathered at a dock" loading="lazy" />
+      <div class="gallery-item" data-categories="reptiles landscapes">
+        <img src="photos/web/eagle-ray-leaping.jpg" alt="Eagle ray leaping from the water" loading="lazy" />
+        <span class="caption">Eagle Ray</span>
+      </div>
+      <div class="gallery-item" data-categories="reptiles landscapes">
+        <img src="photos/web/sea-turtle-underwater.jpg" alt="Sea turtle swimming underwater" loading="lazy" />
+        <span class="caption">Sea Turtle</span>
+      </div>
+      <!-- SUNSETS -->
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-coastal-01.jpg" alt="Fiery red sunset over coastal water" loading="lazy" />
+        <span class="caption">Coastal Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-bay-reflection.jpg" alt="Calm bay at sunset with island silhouette and vivid sky reflection" loading="lazy" />
+        <span class="caption">Bay Reflection</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-bay-dock-cloudy.jpg" alt="Dramatic cloudy sunset viewed from a bay dock" loading="lazy" />
+        <span class="caption">Bay Dock Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-dock-people.jpg" alt="Vivid orange and purple sunset over water with people at a dock" loading="lazy" />
         <span class="caption">Sunset Gathering</span>
       </div>
-      <div class="gallery-item" data-index="15">
-        <img src="photos/web/miami-skyline-sunset.jpg" alt="Miami port skyline silhouetted against a deep orange sunset" loading="lazy" />
-        <span class="caption">Miami Skyline</span>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-dock-people-orange.jpg" alt="Deep orange sunset at a dock with people silhouetted" loading="lazy" />
+        <span class="caption">Orange Sunset</span>
       </div>
-      <div class="gallery-item" data-index="16">
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-stormy-dock.jpg" alt="Dramatic stormy sunset viewed from a dock" loading="lazy" />
+        <span class="caption">Stormy Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-bay-island-reflection.jpg" alt="Bay at sunset with island silhouette and water reflection" loading="lazy" />
+        <span class="caption">Island Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-bay-full-sun-reflection.jpg" alt="Full sun setting over bay with golden reflection" loading="lazy" />
+        <span class="caption">Full Sun Reflection</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-mangrove-channel-pink.jpg" alt="Pink sunset over a mangrove channel" loading="lazy" />
+        <span class="caption">Mangrove Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets birds">
+        <img src="photos/web/sunset-channel-marker-birds-01.jpg" alt="Birds on channel markers at sunset" loading="lazy" />
+        <span class="caption">Channel Markers at Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets birds">
+        <img src="photos/web/sunset-channel-marker-birds-02.jpg" alt="Birds silhouetted on channel markers at sunset" loading="lazy" />
+        <span class="caption">Sunset Channel Markers</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-silhouette-couple-bay.jpg" alt="Couple silhouetted against a bay sunset" loading="lazy" />
+        <span class="caption">Sunset Silhouette</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-sun-touching-horizon.jpg" alt="Sun touching the horizon at sunset over water" loading="lazy" />
+        <span class="caption">Sun on Horizon</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-pastel-clouds.jpg" alt="Pastel sunset with dramatic clouds over open water" loading="lazy" />
+        <span class="caption">Pastel Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-double-sun-mirage.jpg" alt="Optical mirage creating double sun effect at sunset over open water" loading="lazy" />
+        <span class="caption">Double Sun Mirage</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-sun-clouds-01.jpg" alt="Sun setting through dramatic clouds over open water" loading="lazy" />
+        <span class="caption">Sunset Through Clouds</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-sun-clouds-02.jpg" alt="Dramatic cloud formation at sunset over open water" loading="lazy" />
+        <span class="caption">Cloud Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-sun-clouds-03.jpg" alt="Sun breaking through storm clouds at sunset" loading="lazy" />
+        <span class="caption">Storm Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-open-water-sun-clouds-04.jpg" alt="Golden sunset with layered clouds over open water" loading="lazy" />
+        <span class="caption">Golden Clouds</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-sun-horizon-mirage-reflection.jpg" alt="Sun setting on horizon with mirage reflection in water" loading="lazy" />
+        <span class="caption">Horizon Mirage</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-paddleboarder-silhouette-01.jpg" alt="Paddleboarder silhouetted against a dramatic sunset" loading="lazy" />
+        <span class="caption">Paddleboarder at Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-paddleboarder-silhouette-02.jpg" alt="Paddleboarder silhouetted against a golden sunset" loading="lazy" />
+        <span class="caption">Paddleboarder Silhouette</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-dock-pilings-bay.jpg" alt="Dock pilings at sunset on the bay" loading="lazy" />
+        <span class="caption">Dock Pilings</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets landscapes">
+        <img src="photos/web/sunset-beach-snow-red-sky.jpg" alt="Fiery red sunset sky over a snowy beach" loading="lazy" />
+        <span class="caption">Red Sky Beach</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/sunset-golden-pillar.jpg" alt="Golden pillar of light reflected in calm water at sunset" loading="lazy" />
+        <span class="caption">Golden Pillar</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets">
+        <img src="photos/web/dusk-boats-rocky-shoreline.jpg" alt="Boats on the water at dusk with rocky shoreline" loading="lazy" />
+        <span class="caption">Dusk on the Bay</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets landscapes">
+        <img src="photos/web/flats-fishing-boat-push-pole-bay.jpg" alt="Flats fishing boat with push pole on calm bay at dusk" loading="lazy" />
+        <span class="caption">Flats Fishing</span>
+      </div>
+      <div class="gallery-item" data-categories="sunsets landscapes">
+        <img src="photos/web/ebike-waterfront-sunset.jpg" alt="Electric bike parked at a waterfront at sunset" loading="lazy" />
+        <span class="caption">Waterfront at Sunset</span>
+      </div>
+      <!-- SUNRISES -->
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-bay-clouds-01.jpg" alt="Virginia Key sunrise over the bay with dramatic clouds" loading="lazy" />
+        <span class="caption">Virginia Key Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-bay-clouds-02.jpg" alt="Virginia Key sunrise with deep red clouds over the bay" loading="lazy" />
+        <span class="caption">Virginia Key Dawn</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-crescent-sun-01.jpg" alt="Crescent sun peeking through clouds at Virginia Key sunrise" loading="lazy" />
+        <span class="caption">Crescent Sun</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-crescent-sun-02.jpg" alt="Crescent sun rising through clouds reflected in bay" loading="lazy" />
+        <span class="caption">Rising Crescent</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-crescent-sun-03.jpg" alt="Half-crescent sun emerging through storm clouds at sunrise" loading="lazy" />
+        <span class="caption">Storm Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-crescent-sun-04.jpg" alt="Crescent sun with golden reflection at Virginia Key" loading="lazy" />
+        <span class="caption">Crescent Reflection</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-half-sun-island.jpg" alt="Half sun rising over island silhouette at Virginia Key" loading="lazy" />
+        <span class="caption">Half Sun Rising</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-half-sun-reflection.jpg" alt="Half sun reflected in calm bay water at Virginia Key" loading="lazy" />
+        <span class="caption">Half Sun Reflection</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/virginia-key-sunrise-full-sun-reflection.jpg" alt="Full sun rising with bright reflection at Virginia Key" loading="lazy" />
+        <span class="caption">Full Sun Rising</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-bay-pastel-reflection-01.jpg" alt="Pastel sunrise reflected in calm bay water" loading="lazy" />
+        <span class="caption">Pastel Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-bay-pastel-reflection-02.jpg" alt="Soft pastel sunrise colors reflected in still bay" loading="lazy" />
+        <span class="caption">Bay at Dawn</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-bay-mirror-01.jpg" alt="Mirror-calm bay at sunrise" loading="lazy" />
+        <span class="caption">Mirror Bay</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-arch-clouds.jpg" alt="Arching clouds at sunrise over water" loading="lazy" />
+        <span class="caption">Arch Clouds</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-crimson-mangrove.jpg" alt="Crimson sunrise over a mangrove shoreline" loading="lazy" />
+        <span class="caption">Crimson Mangrove</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-crimson-mirror.jpg" alt="Deep crimson sunrise reflected in mirror-calm water" loading="lazy" />
+        <span class="caption">Crimson Mirror</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-golden-contrail.jpg" alt="Golden sunrise with aircraft contrail streaking across the sky" loading="lazy" />
+        <span class="caption">Golden Contrail</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-mangrove-golden.jpg" alt="Golden sunrise light over mangrove islands" loading="lazy" />
+        <span class="caption">Golden Mangrove</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-mangrove-island-01.jpg" alt="Sunrise over a mangrove island" loading="lazy" />
+        <span class="caption">Mangrove Island</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-mangrove-orange.jpg" alt="Orange sunrise glow behind mangrove trees" loading="lazy" />
+        <span class="caption">Orange Mangrove</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-orange-blaze.jpg" alt="Blazing orange sunrise over open water" loading="lazy" />
+        <span class="caption">Orange Blaze</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-orange-mirror-01.jpg" alt="Orange sunrise mirrored in perfectly calm water" loading="lazy" />
+        <span class="caption">Orange Mirror</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-pink-bay-reflection.jpg" alt="Pink sunrise reflected in calm bay water" loading="lazy" />
+        <span class="caption">Pink Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-pink-panorama.jpg" alt="Wide panoramic pink sunrise over the bay" loading="lazy" />
+        <span class="caption">Pink Panorama</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-pink-purple-sky.jpg" alt="Pink and purple dawn sky over water" loading="lazy" />
+        <span class="caption">Pink &amp; Purple Dawn</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-red-open-water.jpg" alt="Deep red sunrise over open water" loading="lazy" />
+        <span class="caption">Red Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-scarlet-horizon.jpg" alt="Scarlet horizon at sunrise over the water" loading="lazy" />
+        <span class="caption">Scarlet Horizon</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises">
+        <img src="photos/web/sunrise-sun-through-clouds.jpg" alt="Sun breaking through clouds at sunrise" loading="lazy" />
+        <span class="caption">Sun Through Clouds</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises landscapes">
+        <img src="photos/web/dock-pilings-sunrise.jpg" alt="Dock pilings silhouetted at sunrise" loading="lazy" />
+        <span class="caption">Dock at Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises landscapes">
+        <img src="photos/web/flooded-road-mangroves-sunrise.jpg" alt="Flooded road through mangroves at sunrise with Do Not Enter sign" loading="lazy" />
+        <span class="caption">Flooded Road</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises landscapes">
+        <img src="photos/web/ebike-jetty-sunrise.jpg" alt="Electric bike on a jetty at sunrise" loading="lazy" />
+        <span class="caption">Jetty at Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="sunrises landscapes">
+        <img src="photos/web/ebike-waterfront-sunrise.jpg" alt="Electric bike parked at a waterfront at sunrise" loading="lazy" />
+        <span class="caption">Waterfront at Sunrise</span>
+      </div>
+      <!-- LANDSCAPES -->
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/cape-florida-lighthouse-palms.jpg" alt="Cape Florida lighthouse surrounded by palm trees" loading="lazy" />
+        <span class="caption">Cape Florida Lighthouse</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/cape-florida-lighthouse-01.jpg" alt="Cape Florida lighthouse against a blue sky" loading="lazy" />
+        <span class="caption">Lighthouse</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/full-moon-night-sky.jpg" alt="Full moon rising in a clear night sky" loading="lazy" />
+        <span class="caption">Full Moon</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/sailboat-sinking-bay.jpg" alt="Sailboat partially sunk in the bay" loading="lazy" />
+        <span class="caption">Sinking Sailboat</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/sailboats-marina-cloudy.jpg" alt="Sailboats moored at a marina under cloudy skies" loading="lazy" />
+        <span class="caption">Marina</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/stiltsville-boat.jpg" alt="Boat near Stiltsville structures in Biscayne Bay" loading="lazy" />
+        <span class="caption">Stiltsville</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/biscayne-bay-boats.jpg" alt="Boats on Biscayne Bay" loading="lazy" />
+        <span class="caption">Biscayne Bay</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/cannon-waterfront-mangroves.jpg" alt="Historic cannon at a waterfront with mangroves in background" loading="lazy" />
+        <span class="caption">Historic Cannon</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/crandon-beach-lifeguard.jpg" alt="Crandon Beach lifeguard stand with palm trees" loading="lazy" />
+        <span class="caption">Crandon Beach</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/crandon-beach-palm-grove.jpg" alt="Palm grove at Crandon Beach" loading="lazy" />
+        <span class="caption">Palm Grove</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/lifeguard-stand-beach-palms.jpg" alt="Lifeguard stand on beach with palm trees" loading="lazy" />
+        <span class="caption">Beach Lifeguard Stand</span>
+      </div>
+      <div class="gallery-item" data-categories="landscapes">
+        <img src="photos/web/miami-island-boats.jpg" alt="Boats near a small island in Miami waters" loading="lazy" />
+        <span class="caption">Island Boats</span>
+      </div>
+      <!-- URBAN / MIAMI -->
+      <div class="gallery-item" data-categories="urban sunsets">
+        <img src="photos/web/miami-port-skyline-sunset.jpg" alt="Miami port skyline silhouetted against a deep orange sunset" loading="lazy" />
+        <span class="caption">Miami Skyline Sunset</span>
+      </div>
+      <div class="gallery-item" data-categories="urban sunrises">
+        <img src="photos/web/miami-bay-sunrise-palm.jpg" alt="Bayfront promenade with palm trees and Miami skyline at sunrise" loading="lazy" />
+        <span class="caption">Miami Bay Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="urban sunrises">
+        <img src="photos/web/miami-bay-sunrise-bridge.jpg" alt="Miami bay at sunrise with bridge in view" loading="lazy" />
+        <span class="caption">Miami Bridge Sunrise</span>
+      </div>
+      <div class="gallery-item" data-categories="urban sunsets">
         <img src="photos/web/miami-bayfront-sunset-01.jpg" alt="Bayfront promenade with palm trees and Miami skyline at sunset" loading="lazy" />
         <span class="caption">Bayfront at Sunset</span>
       </div>
-      <div class="gallery-item" data-index="17">
+      <div class="gallery-item" data-categories="urban sunsets">
         <img src="photos/web/miami-bayfront-sunset-02.jpg" alt="Bayfront path at sunset with bridge and palm trees" loading="lazy" />
         <span class="caption">Bayfront Path</span>
       </div>
-      <div class="gallery-item" data-index="18">
-        <img src="photos/web/red-crowned-parrots.jpg" alt="Two red-crowned parrots perched at the top of a palm tree" loading="lazy" />
-        <span class="caption">Red-Crowned Parrots</span>
+      <div class="gallery-item" data-categories="urban">
+        <img src="photos/web/miami-bayfront-path.jpg" alt="Miami bayfront path with city skyline" loading="lazy" />
+        <span class="caption">Bayfront Path</span>
+      </div>
+      <div class="gallery-item" data-categories="urban">
+        <img src="photos/web/miami-skyline-sunset.jpg" alt="Miami skyline at sunset" loading="lazy" />
+        <span class="caption">Miami Skyline</span>
+      </div>
+      <div class="gallery-item" data-categories="urban">
+        <img src="photos/web/miami-skyline-fog-towers.jpg" alt="Miami skyscrapers emerging from dense morning fog" loading="lazy" />
+        <span class="caption">Miami in the Fog</span>
+      </div>
+      <div class="gallery-item" data-categories="urban">
+        <img src="photos/web/miami-skyline-fog-street.jpg" alt="Miami skyline visible above fog from a city street" loading="lazy" />
+        <span class="caption">Foggy Miami Street</span>
+      </div>
+      <div class="gallery-item" data-categories="urban">
+        <img src="photos/web/miami-skyline-fog-cyclists-bridge.jpg" alt="Cyclists crossing a bridge with Miami skyline in fog" loading="lazy" />
+        <span class="caption">Cyclists in the Fog</span>
+      </div>
+      <div class="gallery-item" data-categories="urban landscapes">
+        <img src="photos/web/miami-skyline-sailboat.jpg" alt="Sailboat with Miami skyline in the background" loading="lazy" />
+        <span class="caption">Skyline Sailboat</span>
+      </div>
+      <div class="gallery-item" data-categories="urban landscapes">
+        <img src="photos/web/bridge-underpass.jpg" alt="Geometric view under a concrete bridge with Miami skyline visible" loading="lazy" />
+        <span class="caption">Under the Bridge</span>
+      </div>
+      <div class="gallery-item" data-categories="urban landscapes">
+        <img src="photos/web/under-bridge-bay-skyline.jpg" alt="Bay and skyline viewed from under a bridge" loading="lazy" />
+        <span class="caption">Bay Skyline</span>
       </div>
     </div>
+    <p class="no-results" id="no-results">No photos in this category yet.</p>
   </main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button class="lightbox-close" id="lb-close" aria-label="Close">&#x2715;</button>
@@ -330,22 +904,48 @@
   </footer>
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+    // Cookie banner
     const banner = document.getElementById('cookie-banner');
     if (localStorage.getItem('ck_accept')) banner.classList.add('hidden');
     document.getElementById('cookie-accept').addEventListener('click', () => {
       localStorage.setItem('ck_accept', '1');
       banner.classList.add('hidden');
     });
-    const items    = Array.from(document.querySelectorAll('.gallery-item'));
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const allItems = Array.from(document.querySelectorAll('.gallery-item'));
+    const noResults = document.getElementById('no-results');
+    let activeFilter = 'all';
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        let visible = 0;
+        allItems.forEach(item => {
+          const cats = item.dataset.categories || '';
+          const show = activeFilter === 'all' || cats.split(' ').includes(activeFilter);
+          item.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+      });
+    });
+    // Lightbox — only operates on visible items
     const lightbox = document.getElementById('lightbox');
     const lbImg    = document.getElementById('lb-img');
     const lbCap    = document.getElementById('lb-caption');
     let current    = 0;
+    let visibleItems = [];
+    function getVisible() {
+      return allItems.filter(i => !i.classList.contains('hidden'));
+    }
     function openLightbox(index) {
+      visibleItems = getVisible();
       current = index;
-      const item = items[index];
-      lbImg.src  = item.querySelector('img').src;
-      lbImg.alt  = item.querySelector('img').alt;
+      const item = visibleItems[current];
+      lbImg.src = item.querySelector('img').src;
+      lbImg.alt = item.querySelector('img').alt;
       lbCap.textContent = item.querySelector('.caption').textContent;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -356,10 +956,17 @@
       lbImg.src = '';
     }
     function navigate(dir) {
-      current = (current + dir + items.length) % items.length;
+      visibleItems = getVisible();
+      current = (current + dir + visibleItems.length) % visibleItems.length;
       openLightbox(current);
     }
-    items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+    allItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        visibleItems = getVisible();
+        const idx = visibleItems.indexOf(item);
+        if (idx !== -1) openLightbox(idx);
+      });
+    });
     document.getElementById('lb-close').addEventListener('click', closeLightbox);
     document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
     document.getElementById('lb-next').addEventListener('click', () => navigate(1));
