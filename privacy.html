@@ -1,92 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Kestel, Bursa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6P51DGX73"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-S6P51DGX73');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9094032428607043" crossorigin="anonymous"></script>
-    <style>
-        :root { --terracotta: #C1440E; --warm-cream: #FAF4E8; --deep-brown: #3B2314; --soft-brown: #8B5E3C; --light-tan: #EDE0C8; --white: #FFFFFF; --off-white: #FDFAF4; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--white); color: var(--deep-brown); line-height: 1.7; }
-        nav { background-color: var(--deep-brown); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        nav .logo { font-family: 'Playfair Display', serif; color: var(--warm-cream); font-size: 1.4rem; letter-spacing: 1px; text-decoration: none; }
-        nav ul { list-style: none; display: flex; gap: 2rem; }
-        nav ul a { color: var(--light-tan); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
-        nav ul a:hover { color: var(--terracotta); }
-        .page-header { background: linear-gradient(135deg, var(--deep-brown) 0%, var(--soft-brown) 60%, var(--terracotta) 100%); padding: 5rem 2rem 4rem; text-align: center; }
-        .page-header .section-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--light-tan); margin-bottom: 0.75rem; opacity: 0.8; }
-        .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--warm-cream); line-height: 1.2; margin-bottom: 1rem; }
-        .page-header p { color: var(--light-tan); font-size: 0.95rem; font-weight: 300; }
-        .content { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 5rem; }
-        .divider { width: 50px; height: 3px; background-color: var(--terracotta); margin-bottom: 2rem; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep-brown); margin-top: 2.5rem; margin-bottom: 0.75rem; }
-        h2:first-of-type { margin-top: 0; }
-        p { color: var(--soft-brown); margin-bottom: 1rem; font-size: 1.05rem; }
-        a { color: var(--terracotta); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .last-updated { font-size: 0.8rem; color: var(--soft-brown); opacity: 0.7; margin-bottom: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        footer { background-color: var(--deep-brown); color: var(--light-tan); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
-        footer a { color: var(--light-tan); text-decoration: none; margin: 0 0.5rem; }
-        footer a:hover { color: var(--terracotta); }
-        @media (max-width: 768px) { nav ul { display: none; } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Kestel</title>
+  <meta name="description" content="Privacy policy for kestel.com — wildlife and nature photography by Bill Kestel." />
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9094032428607043" crossorigin="anonymous"></script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6P51DGX73"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S6P51DGX73');
+  </script>
+  <style>
+    :root {
+      --bg:        #0d0f0e;
+      --surface:   #161a18;
+      --text:      #e8e4dc;
+      --muted:     #7a8078;
+      --accent:    #c8a96e;
+      --accent-dim:#7a6540;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #1e2421;
+    }
+    .site-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .site-subtitle {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .content {
+      max-width: 740px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .content h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .content p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .content a {
+      color: var(--accent-dim);
+      text-decoration: none;
+    }
+    .content a:hover { color: var(--accent); }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent); }
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #1e2421;
+      letter-spacing: 0.05em;
+      margin-top: 3rem;
+    }
+    footer a { color: var(--accent-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid #2a2f2c;
+      padding: 1rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      z-index: 900;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #cookie-banner.hidden { display: none; }
+    #cookie-banner button {
+      background: var(--accent);
+      color: #0d0f0e;
+      border: none;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a class="logo" href="index.html">Kestel, Bursa</a>
-        <ul>
-            <li><a href="history.html">History</a></li>
-            <li><a href="geography.html">Geography</a></li>
-            <li><a href="things-to-do.html">Things To Do</a></li>
-            <li><a href="culture.html">Culture & Food</a></li>
-            <li><a href="getting-there.html">Getting There</a></li>
-        </ul>
-    </nav>
-    <div class="page-header">
-        <p class="section-label">Legal</p>
-        <h1>Privacy Policy</h1>
-        <p>How we handle data on Kestel.com</p>
-    </div>
+  <header>
+    <p class="site-eyebrow">South Florida</p>
+    <h1 class="site-title">Privacy Policy</h1>
+    <p class="site-subtitle">Wildlife &amp; nature — by Bill Kestel</p>
+  </header>
+  <main>
     <div class="content">
-        <p class="last-updated">Last updated: June 2026</p>
-        <div class="divider"></div>
-        <h2>Overview</h2>
-        <p>This website, Kestel.com, is an independent informational guide about Kestel, Bursa, Turkey. We are committed to being transparent about how this site operates with respect to data and your privacy. This policy explains what information is collected, by whom, and how it is used.</p>
-        <h2>No Personal Data Collection</h2>
-        <p>Kestel.com does not directly collect, store, or process any personal information from visitors. We do not have contact forms, user accounts, email sign-ups, or any mechanism that gathers your name, email address, or other identifying information.</p>
-        <h2>Google Analytics</h2>
-        <p>This site uses Google Analytics, a web analytics service provided by Google LLC. Google Analytics collects information about how visitors use the site — such as which pages are visited, how long visitors stay, and general geographic location based on IP address. This data is aggregated and anonymous; it helps us understand how the site is used so we can improve it.</p>
-        <p>Google Analytics uses cookies to collect this information. You can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. For more information on how Google uses data, visit <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-        <h2>Google AdSense Advertising</h2>
-        <p>Kestel.com displays advertisements served by Google AdSense, an advertising service provided by Google LLC. Google AdSense may use cookies and web beacons to serve ads based on your prior visits to this site or other sites on the internet. This allows Google and its partners to show you relevant advertisements across the web.</p>
-        <p>You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google's Ad Settings</a>. For more information, see the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Advertising Policies</a>.</p>
-        <h2>Cookies &amp; Third-Party Tracking</h2>
-        <p>This site uses cookies placed by third-party services — specifically Google Analytics and Google AdSense — as described above. These cookies are managed by Google, not by Kestel.com directly. You can control or disable cookies through your browser settings. Note that disabling cookies may affect the functionality of some features on this and other websites.</p>
-        <p>We do not sell, trade, or otherwise transfer your data to any parties beyond the third-party services explicitly described in this policy.</p>
-        <h2>External Links</h2>
-        <p>This site may contain links to external websites. We are not responsible for the privacy practices or content of those sites and encourage you to review their privacy policies.</p>
-        <h2>Contact</h2>
-        <p>If you have any questions about this privacy policy, you can reach us at: <a href="mailto:info@kestel.com">info@kestel.com</a></p>
+      <a class="back-link" href="index.html">&#8592; Back to Photos</a>
+
+      <h2>Overview</h2>
+      <p>This site (kestel.com) is a personal photography portfolio. We respect your privacy and aim to be transparent about the limited data collected when you visit.</p>
+
+      <h2>Analytics</h2>
+      <p>We use Google Analytics 4 (GA4) to understand how visitors interact with the site. GA4 collects anonymized data such as pages visited, time on site, and general location (country/region). No personally identifiable information is collected. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+      <h2>Advertising</h2>
+      <p>This site participates in Google AdSense, which may display personalized advertisements based on your browsing history. Google uses cookies to serve ads. You can review and manage your ad personalization settings at <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+
+      <h2>Cookies</h2>
+      <p>Cookies are small text files stored by your browser. This site uses cookies for Google Analytics and Google AdSense as described above. Your acceptance of the cookie notice on this site is also stored locally in your browser. You can clear cookies at any time through your browser settings.</p>
+
+      <h2>Third-Party Links</h2>
+      <p>This site does not currently link to third-party sites beyond Google's own services listed above.</p>
+
+      <h2>Contact</h2>
+      <p>For any privacy-related questions, contact us at <a href="mailto:info@kestel.com">info@kestel.com</a>.</p>
+
+      <h2>Updates</h2>
+      <p>This policy may be updated occasionally. The current version is always available at this URL.</p>
     </div>
-    <footer>
-        <p>© 2026 Kestel.com — An independent guide to Kestel, Bursa, Turkey &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
-    <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; background-color:#3B2314; color:#EDE0C8; padding:1rem 2rem; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; z-index:9999; font-family:Lato,sans-serif; font-size:0.9rem;">
-        <p style="margin:0; color:#EDE0C8; font-size:0.9rem;">This site uses cookies from Google Analytics and Google AdSense to analyse traffic and serve ads. By continuing to use this site you accept our use of cookies. <a href="privacy.html" style="color:#C1440E; text-decoration:underline;">Learn more</a></p>
-        <button onclick="acceptCookies()" style="background-color:#C1440E; color:#FDFAF4; border:none; padding:0.5rem 1.5rem; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; cursor:pointer; white-space:nowrap; font-family:Lato,sans-serif;">Accept</button>
-    </div>
-    <script>
-        function acceptCookies() { localStorage.setItem('cookie_consent', 'accepted'); document.getElementById('cookie-banner').style.display = 'none'; }
-        if (!localStorage.getItem('cookie_consent')) { document.getElementById('cookie-banner').style.display = 'flex'; }
-    </script>
+  </main>
+  <div id="cookie-banner" role="region" aria-label="Cookie notice">
+    <span>This site uses cookies for analytics and advertising. <a href="privacy.html">Privacy policy</a>.</span>
+    <button id="cookie-accept">Accept</button>
+  </div>
+  <footer>
+    <p>Photography &copy; <span id="yr"></span> Bill Kestel &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const banner = document.getElementById('cookie-banner');
+    if (localStorage.getItem('ck_accept')) banner.classList.add('hidden');
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ck_accept', '1');
+      banner.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
