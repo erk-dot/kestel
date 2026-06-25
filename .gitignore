@@ -4,3 +4,6 @@ ga4-key.json
 client_secret_*.json
 token.json
 *.token.json
+
+# Print/merch source files — full res unwatermarked, keep local only
+photos/clean/
