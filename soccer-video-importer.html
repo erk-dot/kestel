@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soccer Video Importer – Kestel</title>
+  <meta name="description" content="A personal desktop app that backs up soccer match videos and uploads them to the user&#39;s own Google Drive." />
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --bg:        #0d0f0e;
+      --surface:   #161a18;
+      --text:      #e8e4dc;
+      --muted:     #7a8078;
+      --accent:    #c8a96e;
+      --accent-dim:#7a6540;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    header {
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #1e2421;
+    }
+    .site-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .site-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .site-subtitle {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .content {
+      max-width: 740px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .content h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .content p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .content a {
+      color: var(--accent-dim);
+      text-decoration: none;
+    }
+    .content a:hover { color: var(--accent); }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent); }
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid #1e2421;
+      letter-spacing: 0.05em;
+      margin-top: 3rem;
+    }
+    footer a { color: var(--accent-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="site-eyebrow">kestel.com</p>
+    <h1 class="site-title">Soccer Video Importer</h1>
+    <p class="site-subtitle">A personal desktop app for match video backups</p>
+  </header>
+  <main>
+    <div class="content">
+      <h2>What it is</h2>
+      <p>Soccer Video Importer is a small personal desktop app for Linux. It copies soccer match videos from camera memory cards to a local backup drive, then uploads the videos and photos to a folder in the user&#39;s own Google Drive.</p>
+
+      <h2>How it uses Google</h2>
+      <p>The app signs in with Google only so it can see which match folders already exist in the user&#39;s chosen Drive folder, create new match folders there, and upload new video and photo files into them. It does not read, change, share or delete any other Drive content.</p>
+
+      <h2>Who it is for</h2>
+      <p>The app is for the developer&#39;s own family use. It is not sold or offered as a public service.</p>
+
+      <h2>Privacy</h2>
+      <p>Read the <a href="soccer-video-importer-privacy.html">Soccer Video Importer privacy policy</a>.</p>
+
+      <h2>Contact</h2>
+      <p><a href="mailto:info@kestel.com">info@kestel.com</a></p>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; <span id="yr"></span> Edward Kestel &nbsp;&middot;&nbsp; <a href="soccer-video-importer.html">Soccer Video Importer</a> &nbsp;&middot;&nbsp; <a href="soccer-video-importer-privacy.html">App Privacy Policy</a></p>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
