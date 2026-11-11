@@ -91,11 +91,6 @@
     .r-name { font-weight: 700; }
     .r-sub { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); }
     .r-note { margin: 0 18px 10px; background: var(--wait-bg); color: var(--wait); font-size: .85rem; padding: 6px 10px; border-radius: 3px; }
-    details.history > summary { cursor: pointer; padding: 0 18px 10px; font-size: .85rem; font-weight: 700; color: var(--blue); }
-    details.history ol { list-style: none; padding: 0 18px 10px; }
-    details.history li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; padding: 5px 0; border-top: 1px dashed var(--line); font-size: .85rem; color: var(--muted); }
-    details.history li .pill { opacity: .75; }
-    .replaced { font-style: italic; }
 
     /* Status pills */
     .pill { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; padding: 4px 9px; border-radius: 3px; white-space: nowrap; }
@@ -119,7 +114,6 @@
     .p-list { list-style: none; margin-top: 10px; }
     .p-list > li { border-top: 1px solid var(--line); }
     .p-list .r-row { padding-left: 0; padding-right: 0; }
-    .p-list details.history > summary, .p-list details.history ol { padding-left: 0; padding-right: 0; }
     .p-list .r-note { margin-left: 0; margin-right: 0; }
 
     .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 6px; }
@@ -149,7 +143,7 @@
       .t-panel { border-top: 1px solid var(--line); border-radius: 4px; }
       .t-panel { padding: 0; }
       .r-row, .t-head { padding-left: 14px; padding-right: 14px; }
-      details.form-preview > summary, details.history > summary, details.history ol { padding-left: 14px; padding-right: 14px; }
+      details.form-preview > summary { padding-left: 14px; padding-right: 14px; }
       .mock { margin-left: 14px; margin-right: 14px; }
       .r-note { margin-left: 14px; margin-right: 14px; }
     }
@@ -169,7 +163,7 @@
   <main>
     <div class="wrap">
       <section class="card intro">
-        <p>Pick a tournament to see the availability on record for every U19 player, which form it came from, and when it was received. If a newer form went out for the same tournament, only the newest one counts; replaced answers are kept under "Earlier versions".</p>
+        <p>Pick a tournament to see the availability on record for every U19 player, which form it came from, and when it was received. If a newer form went out for the same tournament, only the newest one counts.</p>
       </section>
 
       <p class="updated" id="updated"></p>
@@ -218,7 +212,7 @@
           <h3>Where the records would come from</h3>
           <ul>
             <li>Each form's responses already land in a spreadsheet (Google Forms writes to a Google Sheet; Microsoft Forms exports to Excel).</li>
-            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps the newest form version per player per tournament and files older answers under "Earlier versions".</li>
+            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps only the answer from the newest form version per player per tournament.</li>
             <li>The page shows when the records were last updated, so nobody mistakes an old snapshot for the current state.</li>
           </ul>
 
@@ -231,7 +225,7 @@
           <h3>Planned access for real data</h3>
           <ul>
             <li><strong>Team roster by tournament:</strong> visible only to the U19 team's families after logging in with Cloudflare Access (email one-time code, list kept by the team manager).</li>
-            <li><strong>Player lookup:</strong> a Cloudflare Pages Function checks the player code on the server and returns only that player's history.</li>
+            <li><strong>Player lookup:</strong> a Cloudflare Pages Function checks the player code on the server and returns only that player's rows.</li>
             <li>Records live in Cloudflare KV, not in a public file, so nobody outside the team can download them.</li>
           </ul>
         </details>
@@ -278,23 +272,7 @@
     }
     function pill(status, t) { return el('span', 'pill s-' + kind(status, t), status); }
     function rec(p, t) {
-      return p.records[t.id] || { current: { status: 'Not submitted', recordedAt: null, form: t.form, matchedOn: null }, history: [] };
-    }
-
-    function historyBlock(r) {
-      var det = el('details', 'history');
-      det.appendChild(el('summary', null, 'Earlier versions (' + r.history.length + ') — replaced by ' + r.current.form));
-      var ol = el('ol');
-      r.history.slice().reverse().forEach(function (h) {
-        var li = el('li');
-        li.appendChild(el('span', null, h.form));
-        li.appendChild(pill(h.status, null));
-        li.appendChild(el('span', null, 'recorded ' + fmtDT(h.recordedAt)));
-        li.appendChild(el('span', 'replaced', '· no longer counts'));
-        ol.appendChild(li);
-      });
-      det.appendChild(ol);
-      return det;
+      return p.records[t.id] || { current: { status: 'Not submitted', recordedAt: null, form: t.form, matchedOn: null } };
     }
 
     // One row: used both in the tournament roster (label = player) and the player view (label = tournament)
@@ -310,7 +288,6 @@
       g.appendChild(el('span', 'r-sub', sub));
       li.appendChild(g);
       if (c.matchNote) li.appendChild(el('div', 'r-note', c.matchNote));
-      if (r.history && r.history.length) li.appendChild(historyBlock(r));
       return li;
     }
 

@@ -49,15 +49,7 @@
       "recordedAt": "2026-09-21T15:12:00",
       "form": "Form v2",
       "matchedOn": "Player A · 2009"
-     },
-     "history": [
-      {
-       "status": "Unavailable",
-       "recordedAt": "2026-09-13T07:55:00",
-       "form": "Form v1",
-       "matchedOn": "Player A · 2009"
-      }
-     ]
+     }
     },
     "thanksgiving": {
      "current": {
@@ -65,21 +57,7 @@
       "recordedAt": null,
       "form": "Form v4",
       "matchedOn": null
-     },
-     "history": [
-      {
-       "status": "Available",
-       "recordedAt": "2026-10-04T12:55:00",
-       "form": "Form v2",
-       "matchedOn": "Player A · 2009"
-      },
-      {
-       "status": "Available",
-       "recordedAt": "2026-10-20T16:12:00",
-       "form": "Form v3",
-       "matchedOn": "Player A · 2009"
-      }
-     ]
+     }
     },
     "winter": {
      "current": {
@@ -87,8 +65,7 @@
       "recordedAt": "2026-11-10T11:03:00",
       "form": "Form v1",
       "matchedOn": "Player A · 2009"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -96,8 +73,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -112,8 +88,7 @@
       "recordedAt": "2026-09-24T13:26:00",
       "form": "Form v2",
       "matchedOn": "Player B · 2008"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -121,15 +96,7 @@
       "recordedAt": "2026-11-07T21:26:00",
       "form": "Form v4",
       "matchedOn": "Player B · 2008"
-     },
-     "history": [
-      {
-       "status": "Unavailable",
-       "recordedAt": "2026-10-03T20:03:00",
-       "form": "Form v2",
-       "matchedOn": "Player B · 2008"
-      }
-     ]
+     }
     },
     "winter": {
      "current": {
@@ -137,8 +104,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -147,8 +113,7 @@
       "form": "Form v1",
       "matchedOn": "Plyer B · 2008",
       "matchNote": "Name typed differently on this response. Matched by the team manager."
-     },
-     "history": []
+     }
     }
    }
   },
@@ -163,8 +128,7 @@
       "recordedAt": null,
       "form": "Form v2",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -172,8 +136,7 @@
       "recordedAt": "2026-11-02T16:55:00",
       "form": "Form v4",
       "matchedOn": "Player C · 2008"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -181,8 +144,7 @@
       "recordedAt": "2026-11-04T21:03:00",
       "form": "Form v1",
       "matchedOn": "Player C · 2008"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -190,8 +152,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -206,15 +167,7 @@
       "recordedAt": "2026-09-27T13:03:00",
       "form": "Form v2",
       "matchedOn": "Player D · 2009"
-     },
-     "history": [
-      {
-       "status": "Available",
-       "recordedAt": "2026-09-09T08:55:00",
-       "form": "Form v1",
-       "matchedOn": "Player D · 2009"
-      }
-     ]
+     }
     },
     "thanksgiving": {
      "current": {
@@ -222,8 +175,7 @@
       "recordedAt": "2026-11-03T13:03:00",
       "form": "Form v4",
       "matchedOn": "Player D · 2009"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -231,8 +183,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -240,8 +191,7 @@
       "recordedAt": "2026-11-05T16:41:00",
       "form": "Form v1",
       "matchedOn": "Player D · 2009"
-     },
-     "history": []
+     }
     }
    }
   },
@@ -256,8 +206,7 @@
       "recordedAt": "2026-09-26T14:26:00",
       "form": "Form v2",
       "matchedOn": "Player E · 2008"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -265,8 +214,7 @@
       "recordedAt": "2026-11-04T19:41:00",
       "form": "Form v4",
       "matchedOn": "Player E · 2008"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -274,8 +222,7 @@
       "recordedAt": "2026-11-04T19:55:00",
       "form": "Form v1",
       "matchedOn": "Player E · 2008"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -283,8 +230,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -299,8 +245,7 @@
       "recordedAt": "2026-09-29T18:03:00",
       "form": "Form v2",
       "matchedOn": "Player F · 2008"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -308,21 +253,7 @@
       "recordedAt": null,
       "form": "Form v4",
       "matchedOn": null
-     },
-     "history": [
-      {
-       "status": "Available",
-       "recordedAt": "2026-10-02T13:12:00",
-       "form": "Form v2",
-       "matchedOn": "Player F · 2008"
-      },
-      {
-       "status": "Available",
-       "recordedAt": "2026-10-19T09:41:00",
-       "form": "Form v3",
-       "matchedOn": "Player F · 2008"
-      }
-     ]
+     }
     },
     "winter": {
      "current": {
@@ -330,8 +261,7 @@
       "recordedAt": "2026-11-02T15:41:00",
       "form": "Form v1",
       "matchedOn": "Player F · 2008"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -339,8 +269,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -355,8 +284,7 @@
       "recordedAt": "2026-09-20T14:41:00",
       "form": "Form v2",
       "matchedOn": "Player G · 2009"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -364,8 +292,7 @@
       "recordedAt": "2026-11-03T15:41:00",
       "form": "Form v4",
       "matchedOn": "Player G · 2009"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -373,8 +300,7 @@
       "recordedAt": "2026-11-09T14:26:00",
       "form": "Form v1",
       "matchedOn": "Player G · 2009"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -382,8 +308,7 @@
       "recordedAt": "2026-11-08T21:55:00",
       "form": "Form v1",
       "matchedOn": "Player G · 2009"
-     },
-     "history": []
+     }
     }
    }
   },
@@ -398,8 +323,7 @@
       "recordedAt": null,
       "form": "Form v2",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -407,8 +331,7 @@
       "recordedAt": "2026-11-04T21:03:00",
       "form": "Form v4",
       "matchedOn": "Player H · 2008"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -416,8 +339,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -425,8 +347,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -441,8 +362,7 @@
       "recordedAt": "2026-09-23T08:03:00",
       "form": "Form v2",
       "matchedOn": "Player I · 2008"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -450,8 +370,7 @@
       "recordedAt": null,
       "form": "Form v4",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -459,8 +378,7 @@
       "recordedAt": "2026-11-08T13:41:00",
       "form": "Form v1",
       "matchedOn": "Player I · 2008"
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -468,8 +386,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   },
@@ -484,8 +401,7 @@
       "recordedAt": "2026-09-21T17:26:00",
       "form": "Form v2",
       "matchedOn": "Player J · 2009"
-     },
-     "history": []
+     }
     },
     "thanksgiving": {
      "current": {
@@ -493,8 +409,7 @@
       "recordedAt": "2026-11-04T14:26:00",
       "form": "Form v4",
       "matchedOn": "Player J · 2009"
-     },
-     "history": []
+     }
     },
     "winter": {
      "current": {
@@ -502,8 +417,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     },
     "spring": {
      "current": {
@@ -511,8 +425,7 @@
       "recordedAt": null,
       "form": "Form v1",
       "matchedOn": null
-     },
-     "history": []
+     }
     }
    }
   }
