@@ -1,5 +1,5 @@
 {
- "_note": "FAKE DEMO DATA ONLY. Every player, code, tournament and response here is made up. This file is public: anyone can open it. Never put real player data in it.",
+ "_note": "FAKE DEMO DATA ONLY. Every name, code, tournament and response here is made up. This file is public: anyone can open it. Never put real player data in it.",
  "team": "U19",
  "lastUpdated": "2026-11-10T19:45:00",
  "updatedBy": "Team manager (demo)",
@@ -8,424 +8,296 @@
    "id": "fall",
    "name": "Demo Fall Classic",
    "dates": "Oct 17 – 18, 2026",
-   "deadline": "2026-10-05T23:59:00",
-   "form": "Form v2",
-   "formsSent": 2
+   "deadline": "2026-10-05T23:59:00"
   },
   {
    "id": "thanksgiving",
    "name": "Demo Thanksgiving Showcase",
    "dates": "Nov 27 – 29, 2026",
-   "deadline": "2026-11-15T23:59:00",
-   "form": "Form v4",
-   "formsSent": 4
+   "deadline": "2026-11-15T23:59:00"
   },
   {
    "id": "winter",
    "name": "Demo Winter Cup",
    "dates": "Dec 11 – 13, 2026",
-   "deadline": "2026-11-25T23:59:00",
-   "form": "Form v1",
-   "formsSent": 1
+   "deadline": "2026-11-25T23:59:00"
   },
   {
    "id": "spring",
    "name": "Demo Spring Invitational",
    "dates": "Mar 6 – 8, 2027",
-   "deadline": "2027-02-15T23:59:00",
-   "form": "Form v1",
-   "formsSent": 1
+   "deadline": "2027-02-15T23:59:00"
   }
  ],
  "players": [
   {
    "code": "DEMO-A",
-   "name": "Player A",
+   "name": "Mateo Alvarez",
    "birthYear": 2009,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-21T15:12:00",
-      "form": "Form v2",
-      "matchedOn": "Player A · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-30T07:55:00",
+     "matchedOn": "Mateo Alvarez · 2009"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v4",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "winter": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-11-10T11:03:00",
-      "form": "Form v1",
-      "matchedOn": "Player A · 2009"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-11-02T15:12:00",
+     "matchedOn": "Mateo Alvarez · 2009"
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-B",
-   "name": "Player B",
+   "name": "Ethan Brooks",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-24T13:26:00",
-      "form": "Form v2",
-      "matchedOn": "Player B · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-26T12:55:00",
+     "matchedOn": "Ethan Brooks · 2008"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-07T21:26:00",
-      "form": "Form v4",
-      "matchedOn": "Player B · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-06T16:12:00",
+     "matchedOn": "Ethan Brooks · 2008"
     },
     "winter": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "spring": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-09T19:03:00",
-      "form": "Form v1",
-      "matchedOn": "Plyer B · 2008",
-      "matchNote": "Name typed differently on this response. Matched by the team manager."
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-09T19:03:00",
+     "matchedOn": "Etan Brooks · 2008",
+     "matchNote": "Name typed differently on this response. Matched by the team manager."
     }
    }
   },
   {
    "code": "DEMO-C",
-   "name": "Player C",
+   "name": "Daniel Okafor",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v2",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "thanksgiving": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-11-02T16:55:00",
-      "form": "Form v4",
-      "matchedOn": "Player C · 2008"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-11-06T08:26:00",
+     "matchedOn": "Daniel Okafor · 2008"
     },
     "winter": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-04T21:03:00",
-      "form": "Form v1",
-      "matchedOn": "Player C · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-07T12:26:00",
+     "matchedOn": "Daniel Okafor · 2008"
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-D",
-   "name": "Player D",
+   "name": "Sam Whitaker",
    "birthYear": 2009,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-27T13:03:00",
-      "form": "Form v2",
-      "matchedOn": "Player D · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-21T19:26:00",
+     "matchedOn": "Sam Whitaker · 2009"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-03T13:03:00",
-      "form": "Form v4",
-      "matchedOn": "Player D · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-06T07:55:00",
+     "matchedOn": "Sam Whitaker · 2009"
     },
     "winter": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "spring": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-05T16:41:00",
-      "form": "Form v1",
-      "matchedOn": "Player D · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-09T10:03:00",
+     "matchedOn": "Sam Whitaker · 2009"
     }
    }
   },
   {
    "code": "DEMO-E",
-   "name": "Player E",
+   "name": "Diego Ramirez",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-09-26T14:26:00",
-      "form": "Form v2",
-      "matchedOn": "Player E · 2008"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-09-23T08:55:00",
+     "matchedOn": "Diego Ramirez · 2008"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-04T19:41:00",
-      "form": "Form v4",
-      "matchedOn": "Player E · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-09T13:03:00",
+     "matchedOn": "Diego Ramirez · 2008"
     },
     "winter": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-11-04T19:55:00",
-      "form": "Form v1",
-      "matchedOn": "Player E · 2008"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-11-02T13:03:00",
+     "matchedOn": "Diego Ramirez · 2008"
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-F",
-   "name": "Player F",
+   "name": "Noah Patel",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-29T18:03:00",
-      "form": "Form v2",
-      "matchedOn": "Player F · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-21T16:41:00",
+     "matchedOn": "Noah Patel · 2008"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v4",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "winter": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-02T15:41:00",
-      "form": "Form v1",
-      "matchedOn": "Player F · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-07T14:26:00",
+     "matchedOn": "Noah Patel · 2008"
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-G",
-   "name": "Player G",
+   "name": "Caleb Turner",
    "birthYear": 2009,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-20T14:41:00",
-      "form": "Form v2",
-      "matchedOn": "Player G · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-29T15:12:00",
+     "matchedOn": "Caleb Turner · 2009"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-11-03T15:41:00",
-      "form": "Form v4",
-      "matchedOn": "Player G · 2009"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-11-08T10:55:00",
+     "matchedOn": "Caleb Turner · 2009"
     },
     "winter": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-09T14:26:00",
-      "form": "Form v1",
-      "matchedOn": "Player G · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-02T19:12:00",
+     "matchedOn": "Caleb Turner · 2009"
     },
     "spring": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-08T21:55:00",
-      "form": "Form v1",
-      "matchedOn": "Player G · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-08T10:12:00",
+     "matchedOn": "Caleb Turner · 2009"
     }
    }
   },
   {
    "code": "DEMO-H",
-   "name": "Player H",
+   "name": "Adrian Silva",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v2",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "thanksgiving": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-04T21:03:00",
-      "form": "Form v4",
-      "matchedOn": "Player H · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-04T17:41:00",
+     "matchedOn": "Adrian Silva · 2008"
     },
     "winter": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-I",
-   "name": "Player I",
+   "name": "Owen Mitchell",
    "birthYear": 2008,
    "records": {
     "fall": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-09-23T08:03:00",
-      "form": "Form v2",
-      "matchedOn": "Player I · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-09-21T15:41:00",
+     "matchedOn": "Owen Mitchell · 2008"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v4",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "winter": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-08T13:41:00",
-      "form": "Form v1",
-      "matchedOn": "Player I · 2008"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-01T14:41:00",
+     "matchedOn": "Owen Mitchell · 2008"
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   },
   {
    "code": "DEMO-J",
-   "name": "Player J",
+   "name": "Isaac Bennett",
    "birthYear": 2009,
    "records": {
     "fall": {
-     "current": {
-      "status": "Unavailable",
-      "recordedAt": "2026-09-21T17:26:00",
-      "form": "Form v2",
-      "matchedOn": "Player J · 2009"
-     }
+     "status": "Unavailable",
+     "recordedAt": "2026-09-29T08:55:00",
+     "matchedOn": "Isaac Bennett · 2009"
     },
     "thanksgiving": {
-     "current": {
-      "status": "Available",
-      "recordedAt": "2026-11-04T14:26:00",
-      "form": "Form v4",
-      "matchedOn": "Player J · 2009"
-     }
+     "status": "Available",
+     "recordedAt": "2026-11-09T15:41:00",
+     "matchedOn": "Isaac Bennett · 2009"
     },
     "winter": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     },
     "spring": {
-     "current": {
-      "status": "Not submitted",
-      "recordedAt": null,
-      "form": "Form v1",
-      "matchedOn": null
-     }
+     "status": "Not submitted",
+     "recordedAt": null,
+     "matchedOn": null
     }
    }
   }

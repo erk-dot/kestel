@@ -46,9 +46,10 @@
     .card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 18px; margin-bottom: 16px; }
     .intro p { color: var(--muted); }
     .section-label { font-family: var(--head); font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 26px 0 8px; }
+    .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 6px; }
 
     /* Tournament tabs */
-    .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
     .tab {
       flex: 0 0 auto; text-align: left; cursor: pointer; font: inherit;
       background: var(--white); color: var(--ink); border: 1px solid var(--line); border-bottom: 4px solid var(--line);
@@ -64,29 +65,39 @@
     .t-head { padding: 16px 18px; border-bottom: 1px solid var(--line); border-left: 6px solid var(--blue); }
     .t-head h2 { font-size: 1.3rem; letter-spacing: .03em; margin-bottom: 2px; }
     .t-meta { color: var(--muted); font-size: .92rem; }
-    .t-meta strong { color: var(--ink); }
     .counts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
 
-    /* Form preview */
-    details.form-preview { border-bottom: 1px solid var(--line); background: #fafafa; }
-    details.form-preview > summary { cursor: pointer; padding: 11px 18px; font-weight: 700; color: var(--blue); font-size: .95rem; }
-    .mock { margin: 0 18px 16px; background: var(--white); border: 1px solid var(--line); border-top: 8px solid #673ab7; border-radius: 6px; padding: 16px; max-width: 520px; }
-    .mock-flag { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; background: var(--wait-bg); color: var(--wait); padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; }
-    .mock h3 { font-family: var(--body); font-weight: 700; font-size: 1.15rem; }
-    .mock .m-desc { color: var(--muted); font-size: .88rem; margin: 4px 0 12px; }
-    .mock fieldset { border: 0; border-top: 1px solid var(--line); padding: 12px 0 4px; }
-    .mock legend, .mock label.q { display: block; font-size: .92rem; font-weight: 700; margin-bottom: 6px; padding: 0; }
-    .mock legend { float: left; width: 100%; }
-    .mock legend + * { clear: both; }
-    .mock input[type=text], .mock input[type=number], .mock select { font: inherit; font-size: .92rem; width: 100%; max-width: 280px; padding: 7px 8px; border: 1px solid var(--line); border-radius: 3px; background: #f7f7f7; color: var(--muted); }
-    .mock .opt { display: flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--muted); margin: 4px 0; }
-    .mock .btn[disabled] { opacity: .55; cursor: not-allowed; margin-top: 12px; }
-    .mock .m-foot { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+    /* Response form */
+    .respond { padding: 16px 18px; border-bottom: 1px solid var(--line); background: #fafafa; }
+    .respond h3 { font-family: var(--head); font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+    .respond .r-help { font-size: .88rem; color: var(--muted); margin-bottom: 12px; }
+    .respond form { display: grid; gap: 12px; max-width: 520px; }
+    .respond label.q, .respond legend { display: block; font-weight: 700; font-size: .95rem; margin-bottom: 4px; padding: 0; }
+    .respond fieldset { border: 0; }
+    .respond legend { float: left; width: 100%; }
+    .respond legend + * { clear: both; }
+    .respond select { font: inherit; width: 100%; padding: 10px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); }
+    .respond select:focus { outline: none; border-color: var(--blue); }
+    .choices { display: flex; gap: 8px; flex-wrap: wrap; }
+    .choice { position: relative; flex: 1 1 140px; }
+    .choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; }
+    .choice span { display: block; text-align: center; padding: 11px 10px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .88rem; }
+    .choice input:focus-visible + span { outline: 3px solid var(--tan); outline-offset: 2px; }
+    .choice input[value="Available"]:checked + span { border-color: var(--ok); background: var(--ok-bg); color: var(--ok); }
+    .choice input[value="Unavailable"]:checked + span { border-color: var(--no); background: var(--no-bg); color: var(--no); }
+    .respond .btn { justify-self: start; }
+    .form-error { color: var(--no); font-weight: 700; font-size: .92rem; }
+    .closed-note { font-size: .92rem; color: var(--closed); background: var(--closed-bg); padding: 10px 12px; border-radius: 4px; }
+    .receipt { margin-top: 14px; max-width: 520px; border: 2px solid var(--ok); background: var(--ok-bg); border-radius: 4px; padding: 12px 14px; }
+    .receipt strong { display: block; font-family: var(--head); text-transform: uppercase; letter-spacing: .06em; color: var(--ok); font-size: .9rem; margin-bottom: 4px; }
+    .receipt p { font-size: .92rem; }
+    .receipt .demo-note { color: var(--muted); font-size: .82rem; margin-top: 6px; }
 
     /* Roster */
     .roster { list-style: none; }
     .roster > li { border-bottom: 1px solid var(--line); }
     .roster > li:last-child { border-bottom: 0; }
+    .roster > li.just-updated { background: #f1f8f3; box-shadow: inset 4px 0 0 var(--ok); }
     .r-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; padding: 11px 18px; }
     .r-name { font-weight: 700; }
     .r-sub { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); }
@@ -105,18 +116,16 @@
     .lookup input { flex: 1 1 200px; min-width: 0; font: inherit; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .05em; padding: 11px 12px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); }
     .lookup input:focus { outline: none; border-color: var(--blue); }
     .btn { font-family: var(--head); font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; background: var(--blue); color: var(--white); border: 0; border-radius: 4px; padding: 12px 22px; cursor: pointer; }
-    .btn:hover:not([disabled]), .btn:focus-visible { background: var(--blue-dark); }
+    .btn:hover, .btn:focus-visible { background: var(--blue-dark); }
     .hint { font-size: .88rem; color: var(--muted); margin-top: 8px; }
     .hint button { font: inherit; background: none; border: 0; color: var(--blue); text-decoration: underline; cursor: pointer; padding: 0 2px; font-weight: 700; }
     .error { color: var(--no); font-weight: 700; margin-top: 10px; }
-    .p-head { border-left: 6px solid var(--blue); }
+    .p-head { border-left: 6px solid var(--blue); margin: 14px 0 0; }
     .p-head h2 { font-size: 1.3rem; margin-bottom: 2px; letter-spacing: .03em; }
     .p-list { list-style: none; margin-top: 10px; }
     .p-list > li { border-top: 1px solid var(--line); }
     .p-list .r-row { padding-left: 0; padding-right: 0; }
     .p-list .r-note { margin-left: 0; margin-right: 0; }
-
-    .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 6px; }
 
     /* Legend + notes */
     .legend ul { list-style: none; display: grid; gap: 8px; }
@@ -137,15 +146,13 @@
     @media (max-width: 640px) {
       .top h1 { font-size: 1.1rem; }
       .card { padding: 16px; }
-      .tabs { flex-wrap: wrap; overflow: visible; gap: 6px; margin-bottom: 8px; }
+      .tabs { flex-wrap: wrap; overflow: visible; margin-bottom: 8px; }
       .tab { flex: 1 1 calc(50% - 3px); min-width: 0; border-radius: 4px; border-bottom-width: 1px; }
       .tab[aria-selected="true"] { box-shadow: inset 0 -4px 0 var(--tan); }
-      .t-panel { border-top: 1px solid var(--line); border-radius: 4px; }
-      .t-panel { padding: 0; }
-      .r-row, .t-head { padding-left: 14px; padding-right: 14px; }
-      details.form-preview > summary { padding-left: 14px; padding-right: 14px; }
-      .mock { margin-left: 14px; margin-right: 14px; }
+      .t-panel { padding: 0; border-top: 1px solid var(--line); border-radius: 4px; }
+      .r-row, .t-head, .respond { padding-left: 14px; padding-right: 14px; }
       .r-note { margin-left: 14px; margin-right: 14px; }
+      .respond .btn { justify-self: stretch; }
     }
   </style>
 </head>
@@ -157,19 +164,19 @@
     </div>
   </header>
   <div class="demo-strip">
-    <div class="wrap"><strong>Demo data</strong>Every player, code and tournament on this page is made up.</div>
+    <div class="wrap"><strong>Demo data</strong>Every name, code and tournament on this page is made up.</div>
   </div>
 
   <main>
     <div class="wrap">
       <section class="card intro">
-        <p>Pick a tournament to see the availability on record for every U19 player, which form it came from, and when it was received. If a newer form went out for the same tournament, only the newest one counts.</p>
+        <p>Pick a tournament to see the availability on record for every U19 player and when it was received. You can respond right on the page and get a confirmation straight away.</p>
       </section>
 
       <p class="updated" id="updated"></p>
       <p class="section-label" id="tabs-label">Tournaments</p>
       <div class="tabs" role="tablist" aria-labelledby="tabs-label" id="tabs"></div>
-      <section class="card t-panel" role="tabpanel" id="panel" aria-live="polite"></section>
+      <section class="card t-panel" role="tabpanel" id="panel"></section>
 
       <p class="section-label">One player, all tournaments</p>
       <section class="card lookup">
@@ -191,10 +198,10 @@
       <section class="card legend">
         <h2>What the statuses mean</h2>
         <ul>
-          <li><span class="pill s-available">Available</span><span>The newest form for this tournament recorded the player as available.</span></li>
-          <li><span class="pill s-unavailable">Unavailable</span><span>The newest form recorded the player as not available.</span></li>
-          <li><span class="pill s-waiting">Not submitted</span><span>No answer on the newest form yet, and it is still open. There is still time.</span></li>
-          <li><span class="pill s-missed">Not submitted</span><span>No answer on the newest form, and it has closed. Contact the team manager.</span></li>
+          <li><span class="pill s-available">Available</span><span>Recorded as available for this tournament.</span></li>
+          <li><span class="pill s-unavailable">Unavailable</span><span>Recorded as not available.</span></li>
+          <li><span class="pill s-waiting">Not submitted</span><span>No answer yet, and the form is still open. There is still time.</span></li>
+          <li><span class="pill s-missed">Not submitted</span><span>No answer, and the form has closed. Contact the team manager.</span></li>
         </ul>
       </section>
 
@@ -209,24 +216,27 @@
           <h3>The problem it addresses</h3>
           <p>Tournament availability is collected with online forms. There is no confirmation email, and new versions of a form go out during the season, so a family can believe they responded while the record shows the player as unavailable because a later version was never filled in.</p>
 
+          <h3>The form on this page</h3>
+          <ul>
+            <li>Families answer here instead of on a separate form. They pick the player from the roster, so there is no typed name to mismatch, and they get a confirmation with a time and reference number immediately.</li>
+            <li>The page always shows the one answer that counts for each tournament, so there is no question of which version of a form was filled in.</li>
+            <li><strong>In this demo nothing is saved.</strong> An answer updates the page in your browser only and disappears when you reload.</li>
+          </ul>
+
           <h3>Where the records would come from</h3>
           <ul>
-            <li>Each form's responses already land in a spreadsheet (Google Forms writes to a Google Sheet; Microsoft Forms exports to Excel).</li>
-            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps only the answer from the newest form version per player per tournament.</li>
+            <li>Answers made on this page would be stored directly. Answers still arriving through Google Forms or Microsoft Forms would be merged in by the team manager from the response spreadsheets.</li>
             <li>The page shows when the records were last updated, so nobody mistakes an old snapshot for the current state.</li>
           </ul>
 
-          <h3>The form preview</h3>
-          <p>Each tournament shows a non-working preview of its current form, so families can recognise which version is the one that counts. In a real version the button would open that form.</p>
-
           <h3>Matching responses to players</h3>
-          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row records what it was matched on so mismatches are visible. A real version should give each player a stable ID or code that the form asks for.</p>
+          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row records what it was matched on so mismatches are visible.</p>
 
           <h3>Planned access for real data</h3>
           <ul>
-            <li><strong>Team roster by tournament:</strong> visible only to the U19 team's families after logging in with Cloudflare Access (email one-time code, list kept by the team manager).</li>
-            <li><strong>Player lookup:</strong> a Cloudflare Pages Function checks the player code on the server and returns only that player's rows.</li>
-            <li>Records live in Cloudflare KV, not in a public file, so nobody outside the team can download them.</li>
+            <li><strong>Team roster and form:</strong> visible only to the U19 team's families after logging in with Cloudflare Access (email one-time code, list kept by the team manager).</li>
+            <li><strong>Saving answers and the player lookup:</strong> a Cloudflare Pages Function checks the request on the server and reads or writes Cloudflare KV.</li>
+            <li>Records live in KV, not in a public file, so nobody outside the team can download them.</li>
           </ul>
         </details>
       </section>
@@ -243,10 +253,10 @@
   (function () {
     'use strict';
     var DATA_URL = '/intergnv/data.json';
-    var data = null, selected = null;
+    var data = null, selected = null, receipt = null, shownPlayer = null;
     var tabsEl = document.getElementById('tabs');
     var panel = document.getElementById('panel');
-    var form = document.getElementById('lookup');
+    var lookupForm = document.getElementById('lookup');
     var input = document.getElementById('code');
     var errorEl = document.getElementById('error');
     var result = document.getElementById('result');
@@ -264,67 +274,98 @@
     function fmtDate(s) { return dFmt.format(new Date(s)); }
     function isOpen(t) { return new Date(t.deadline).getTime() > Date.now(); }
     function tById(id) { return data.tournaments.filter(function (t) { return t.id === id; })[0]; }
+    function pByCode(c) { return data.players.filter(function (p) { return p.code === c; })[0]; }
 
     function kind(status, t) {
       if (status === 'Available') return 'available';
       if (status === 'Unavailable') return 'unavailable';
-      return (t && isOpen(t)) ? 'waiting' : 'missed';
+      return isOpen(t) ? 'waiting' : 'missed';
     }
     function pill(status, t) { return el('span', 'pill s-' + kind(status, t), status); }
     function rec(p, t) {
-      return p.records[t.id] || { current: { status: 'Not submitted', recordedAt: null, form: t.form, matchedOn: null } };
+      return p.records[t.id] || { status: 'Not submitted', recordedAt: null, matchedOn: null };
     }
 
-    // One row: used both in the tournament roster (label = player) and the player view (label = tournament)
+    // One row: used in the tournament roster (label = player) and the player view (label = tournament)
     function row(label, r, t) {
       var li = el('li');
       var g = el('div', 'r-row');
       g.appendChild(el('span', 'r-name', label));
-      g.appendChild(pill(r.current.status, t));
-      var c = r.current;
-      var sub = c.recordedAt
-        ? 'Recorded ' + fmtDT(c.recordedAt) + ' · ' + c.form + ' · matched on ' + c.matchedOn
-        : 'No response on ' + c.form + (isOpen(t) ? ' · form open until ' + fmtDate(t.deadline) : ' · form closed ' + fmtDate(t.deadline));
+      g.appendChild(pill(r.status, t));
+      var sub = r.recordedAt
+        ? 'Recorded ' + fmtDT(r.recordedAt) + ' · matched on ' + r.matchedOn
+        : 'No response yet · ' + (isOpen(t) ? 'form open until ' : 'form closed ') + fmtDate(t.deadline);
       g.appendChild(el('span', 'r-sub', sub));
       li.appendChild(g);
-      if (c.matchNote) li.appendChild(el('div', 'r-note', c.matchNote));
+      if (r.matchNote) li.appendChild(el('div', 'r-note', r.matchNote));
       return li;
     }
 
-    function formPreview(t) {
-      var det = el('details', 'form-preview');
-      det.appendChild(el('summary', null, 'See the form that counts (' + t.form + ')'));
-      var m = el('div', 'mock');
-      m.appendChild(el('span', 'mock-flag', 'Preview only · not a working form'));
-      m.appendChild(el('h3', null, 'Tournament Availability — ' + t.name));
-      m.appendChild(el('p', 'm-desc', t.form + ' of ' + t.formsSent + ' sent for this tournament. ' + t.name + ' takes place ' + t.dates + '. A response is required even if you are not attending. Deadline: ' + fmtDate(t.deadline) + '.'));
+    function refCode() {
+      var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s = '';
+      for (var i = 0; i < 6; i++) s += chars[Math.floor(Math.random() * chars.length)];
+      return s;
+    }
 
-      function q(labelText, control) {
-        var fs = el('fieldset');
-        var id = 'm-' + t.id + '-' + labelText.replace(/\W+/g, '').toLowerCase();
-        var lab = el('label', 'q', labelText); lab.htmlFor = id; control.id = id;
-        fs.appendChild(lab); fs.appendChild(control); return fs;
+    function respondBlock(t) {
+      var box = el('div', 'respond');
+      box.appendChild(el('h3', null, 'Respond for this tournament'));
+      if (!isOpen(t)) {
+        box.appendChild(el('p', 'closed-note', 'This form closed ' + fmtDate(t.deadline) + '. Contact the team manager to change an answer.'));
+        return box;
       }
-      var name = el('input'); name.type = 'text'; name.disabled = true; name.placeholder = 'Your answer';
-      m.appendChild(q('Player Full Name', name));
-      var by = el('input'); by.type = 'number'; by.disabled = true; by.placeholder = 'e.g. 2008';
-      m.appendChild(q('Player Birth Year', by));
-      var team = el('select'); team.disabled = true; var o = el('option', null, 'U19'); team.appendChild(o);
-      m.appendChild(q('Player Team', team));
+      box.appendChild(el('p', 'r-help', 'A response is needed even if the player is not attending. Deadline: ' + fmtDate(t.deadline) + '.'));
+
+      var f = el('form'); f.noValidate = true; f.autocomplete = 'off';
+      var lab = el('label', 'q', 'Player'); lab.htmlFor = 'resp-player';
+      var sel = el('select'); sel.id = 'resp-player'; sel.name = 'player';
+      sel.appendChild(el('option', null, 'Choose a player…')).value = '';
+      data.players.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (p) {
+        var o = el('option', null, p.name); o.value = p.code; sel.appendChild(o);
+      });
+      var w1 = el('div'); w1.appendChild(lab); w1.appendChild(sel); f.appendChild(w1);
 
       var fs = el('fieldset');
-      fs.appendChild(el('legend', null, t.name + ': ' + t.dates));
+      fs.appendChild(el('legend', null, t.name.replace(/^Demo /, '') + ' · ' + t.dates));
+      var ch = el('div', 'choices');
       ['Available', 'Unavailable'].forEach(function (v) {
-        var lab = el('label', 'opt');
-        var rb = el('input'); rb.type = 'radio'; rb.disabled = true; rb.name = 'm-' + t.id;
-        lab.appendChild(rb); lab.appendChild(document.createTextNode(v)); fs.appendChild(lab);
+        var c = el('label', 'choice');
+        var rb = el('input'); rb.type = 'radio'; rb.name = 'status'; rb.value = v;
+        c.appendChild(rb); c.appendChild(el('span', null, v)); ch.appendChild(c);
       });
-      m.appendChild(fs);
-      var b = el('button', 'btn', 'Open form'); b.type = 'button'; b.disabled = true;
-      m.appendChild(b);
-      m.appendChild(el('p', 'm-foot', 'In a real version this button opens ' + t.form + '.'));
-      det.appendChild(m);
-      return det;
+      fs.appendChild(ch); f.appendChild(fs);
+
+      var err = el('p', 'form-error'); err.hidden = true; err.setAttribute('role', 'alert');
+      f.appendChild(err);
+      var b = el('button', 'btn', 'Submit'); b.type = 'submit'; f.appendChild(b);
+
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var code = sel.value;
+        var choice = f.querySelector('input[name=status]:checked');
+        if (!code || !choice) {
+          err.textContent = !code ? 'Choose a player.' : 'Choose Available or Unavailable.';
+          err.hidden = false; return;
+        }
+        var p = pByCode(code);
+        var now = new Date().toISOString();
+        p.records[t.id] = { status: choice.value, recordedAt: now, matchedOn: p.name + ' · chosen from roster' };
+        receipt = { tid: t.id, code: code, name: p.name, status: choice.value, at: now, ref: refCode() };
+        renderTournament(t.id);
+        if (shownPlayer) renderPlayer(pByCode(shownPlayer));
+        var r = document.getElementById('receipt'); if (r) r.focus();
+      });
+      box.appendChild(f);
+
+      if (receipt && receipt.tid === t.id) {
+        var rc = el('div', 'receipt'); rc.id = 'receipt'; rc.tabIndex = -1; rc.setAttribute('role', 'status');
+        rc.appendChild(el('strong', null, '✓ Response received'));
+        rc.appendChild(el('p', null, receipt.name + ': ' + receipt.status + ' for ' + t.name + ' (' + t.dates + ').'));
+        rc.appendChild(el('p', null, 'Recorded ' + dtFmtY.format(new Date(receipt.at)) + ' · Confirmation ' + receipt.ref));
+        rc.appendChild(el('p', 'demo-note', 'Demo only: this answer is not saved and will disappear when you reload the page.'));
+        box.appendChild(rc);
+      }
+      return box;
     }
 
     function renderTournament(id) {
@@ -340,15 +381,9 @@
 
       var head = el('div', 't-head');
       head.appendChild(el('h2', null, t.name));
-      var meta = el('div', 't-meta');
-      meta.appendChild(document.createTextNode(t.dates + ' · Counting '));
-      meta.appendChild(el('strong', null, t.form));
-      meta.appendChild(document.createTextNode(' (' + t.formsSent + (t.formsSent === 1 ? ' form sent' : ' forms sent') + ') · ' +
-        (isOpen(t) ? 'Open until ' : 'Closed ') + fmtDate(t.deadline)));
-      head.appendChild(meta);
-
+      head.appendChild(el('div', 't-meta', t.dates + ' · ' + (isOpen(t) ? 'Form open until ' : 'Form closed ') + fmtDate(t.deadline)));
       var tally = { available: 0, unavailable: 0, waiting: 0, missed: 0 };
-      data.players.forEach(function (p) { tally[kind(rec(p, t).current.status, t)]++; });
+      data.players.forEach(function (p) { tally[kind(rec(p, t).status, t)]++; });
       var counts = el('div', 'counts');
       counts.appendChild(el('span', 'pill s-available', tally.available + ' available'));
       counts.appendChild(el('span', 'pill s-unavailable', tally.unavailable + ' unavailable'));
@@ -357,12 +392,15 @@
       head.appendChild(counts);
       panel.appendChild(head);
 
-      panel.appendChild(formPreview(t));
+      panel.appendChild(respondBlock(t));
 
       var ul = el('ul', 'roster');
-      data.players.forEach(function (p) { ul.appendChild(row(p.name, rec(p, t), t)); });
+      data.players.forEach(function (p) {
+        var li = row(p.name, rec(p, t), t);
+        if (receipt && receipt.tid === t.id && receipt.code === p.code) li.className = 'just-updated';
+        ul.appendChild(li);
+      });
       panel.appendChild(ul);
-
       try { history.replaceState(null, '', '#' + id); } catch (e) {}
     }
 
@@ -373,14 +411,14 @@
         b.setAttribute('data-id', t.id);
         b.appendChild(el('span', 't-name', t.name.replace(/^Demo /, '')));
         b.appendChild(el('span', 't-date', t.dates));
-        b.addEventListener('click', function () { renderTournament(t.id); });
+        b.addEventListener('click', function () { receipt = null; renderTournament(t.id); });
         tabsEl.appendChild(b);
       });
       tabsEl.addEventListener('keydown', function (e) {
         if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
         var ids = data.tournaments.map(function (t) { return t.id; });
-        var i = ids.indexOf(selected) + (e.key === 'ArrowRight' ? 1 : -1);
-        i = (i + ids.length) % ids.length;
+        var i = (ids.indexOf(selected) + (e.key === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length;
+        receipt = null;
         renderTournament(ids[i]);
         document.getElementById('tab-' + ids[i]).focus();
       });
@@ -394,15 +432,13 @@
     }
 
     function renderPlayer(p) {
+      shownPlayer = p.code;
       result.textContent = '';
       var head = el('div', 'p-head card');
-      head.style.margin = '14px 0 0';
       head.appendChild(el('h2', null, p.name));
       head.appendChild(el('div', 't-meta', data.team + ' · Birth year ' + p.birthYear + ' · Code ' + p.code));
       var ul = el('ul', 'p-list');
-      data.tournaments.forEach(function (t) {
-        ul.appendChild(row(t.name + ' (' + t.dates + ')', rec(p, t), t));
-      });
+      data.tournaments.forEach(function (t) { ul.appendChild(row(t.name + ' (' + t.dates + ')', rec(p, t), t)); });
       head.appendChild(ul);
       result.appendChild(head);
     }
@@ -412,16 +448,16 @@
       code = (code || '').trim().toUpperCase();
       if (!code) { errorEl.textContent = 'Enter a player code.'; errorEl.hidden = false; return; }
       if (!data) { errorEl.textContent = 'Records are still loading. Try again in a moment.'; errorEl.hidden = false; return; }
-      var p = data.players.filter(function (x) { return x.code === code; })[0];
+      var p = pByCode(code);
       if (!p) {
-        result.textContent = '';
+        result.textContent = ''; shownPlayer = null;
         errorEl.textContent = 'No player found for "' + code + '". Check the code with your team manager.';
         errorEl.hidden = false; return;
       }
       renderPlayer(p);
     }
 
-    form.addEventListener('submit', function (e) { e.preventDefault(); lookup(input.value); });
+    lookupForm.addEventListener('submit', function (e) { e.preventDefault(); lookup(input.value); });
     document.querySelectorAll('[data-code]').forEach(function (b) {
       b.addEventListener('click', function () { input.value = b.getAttribute('data-code'); lookup(input.value); });
     });
