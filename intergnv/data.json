@@ -37,23 +37,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-30T07:55:00",
-     "matchedOn": "Mateo Alvarez · 2009"
+     "recordedAt": "2026-09-30T07:55:00"
     },
     "thanksgiving": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "winter": {
      "status": "Unavailable",
-     "recordedAt": "2026-11-02T15:12:00",
-     "matchedOn": "Mateo Alvarez · 2009"
+     "recordedAt": "2026-11-02T15:12:00"
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -64,24 +60,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-26T12:55:00",
-     "matchedOn": "Ethan Brooks · 2008"
+     "recordedAt": "2026-09-26T12:55:00"
     },
     "thanksgiving": {
      "status": "Available",
-     "recordedAt": "2026-11-06T16:12:00",
-     "matchedOn": "Ethan Brooks · 2008"
+     "recordedAt": "2026-11-06T16:12:00"
     },
     "winter": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "spring": {
      "status": "Available",
-     "recordedAt": "2026-11-09T19:03:00",
-     "matchedOn": "Etan Brooks · 2008",
-     "matchNote": "Name typed differently on this response. Matched by the team manager."
+     "recordedAt": "2026-11-09T19:03:00"
     }
    }
   },
@@ -92,23 +83,19 @@
    "records": {
     "fall": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "thanksgiving": {
      "status": "Unavailable",
-     "recordedAt": "2026-11-06T08:26:00",
-     "matchedOn": "Daniel Okafor · 2008"
+     "recordedAt": "2026-11-06T08:26:00"
     },
     "winter": {
      "status": "Available",
-     "recordedAt": "2026-11-07T12:26:00",
-     "matchedOn": "Daniel Okafor · 2008"
+     "recordedAt": "2026-11-07T12:26:00"
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -119,23 +106,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-21T19:26:00",
-     "matchedOn": "Sam Whitaker · 2009"
+     "recordedAt": "2026-09-21T19:26:00"
     },
     "thanksgiving": {
      "status": "Available",
-     "recordedAt": "2026-11-06T07:55:00",
-     "matchedOn": "Sam Whitaker · 2009"
+     "recordedAt": "2026-11-06T07:55:00"
     },
     "winter": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "spring": {
      "status": "Available",
-     "recordedAt": "2026-11-09T10:03:00",
-     "matchedOn": "Sam Whitaker · 2009"
+     "recordedAt": "2026-11-09T10:03:00"
     }
    }
   },
@@ -146,23 +129,19 @@
    "records": {
     "fall": {
      "status": "Unavailable",
-     "recordedAt": "2026-09-23T08:55:00",
-     "matchedOn": "Diego Ramirez · 2008"
+     "recordedAt": "2026-09-23T08:55:00"
     },
     "thanksgiving": {
      "status": "Available",
-     "recordedAt": "2026-11-09T13:03:00",
-     "matchedOn": "Diego Ramirez · 2008"
+     "recordedAt": "2026-11-09T13:03:00"
     },
     "winter": {
      "status": "Unavailable",
-     "recordedAt": "2026-11-02T13:03:00",
-     "matchedOn": "Diego Ramirez · 2008"
+     "recordedAt": "2026-11-02T13:03:00"
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -173,23 +152,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-21T16:41:00",
-     "matchedOn": "Noah Patel · 2008"
+     "recordedAt": "2026-09-21T16:41:00"
     },
     "thanksgiving": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "winter": {
      "status": "Available",
-     "recordedAt": "2026-11-07T14:26:00",
-     "matchedOn": "Noah Patel · 2008"
+     "recordedAt": "2026-11-07T14:26:00"
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -200,23 +175,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-29T15:12:00",
-     "matchedOn": "Caleb Turner · 2009"
+     "recordedAt": "2026-09-29T15:12:00"
     },
     "thanksgiving": {
      "status": "Unavailable",
-     "recordedAt": "2026-11-08T10:55:00",
-     "matchedOn": "Caleb Turner · 2009"
+     "recordedAt": "2026-11-08T10:55:00"
     },
     "winter": {
      "status": "Available",
-     "recordedAt": "2026-11-02T19:12:00",
-     "matchedOn": "Caleb Turner · 2009"
+     "recordedAt": "2026-11-02T19:12:00"
     },
     "spring": {
      "status": "Available",
-     "recordedAt": "2026-11-08T10:12:00",
-     "matchedOn": "Caleb Turner · 2009"
+     "recordedAt": "2026-11-08T10:12:00"
     }
    }
   },
@@ -227,23 +198,19 @@
    "records": {
     "fall": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "thanksgiving": {
      "status": "Available",
-     "recordedAt": "2026-11-04T17:41:00",
-     "matchedOn": "Adrian Silva · 2008"
+     "recordedAt": "2026-11-04T17:41:00"
     },
     "winter": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -254,23 +221,19 @@
    "records": {
     "fall": {
      "status": "Available",
-     "recordedAt": "2026-09-21T15:41:00",
-     "matchedOn": "Owen Mitchell · 2008"
+     "recordedAt": "2026-09-21T15:41:00"
     },
     "thanksgiving": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "winter": {
      "status": "Available",
-     "recordedAt": "2026-11-01T14:41:00",
-     "matchedOn": "Owen Mitchell · 2008"
+     "recordedAt": "2026-11-01T14:41:00"
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   },
@@ -281,23 +244,19 @@
    "records": {
     "fall": {
      "status": "Unavailable",
-     "recordedAt": "2026-09-29T08:55:00",
-     "matchedOn": "Isaac Bennett · 2009"
+     "recordedAt": "2026-09-29T08:55:00"
     },
     "thanksgiving": {
      "status": "Available",
-     "recordedAt": "2026-11-09T15:41:00",
-     "matchedOn": "Isaac Bennett · 2009"
+     "recordedAt": "2026-11-09T15:41:00"
     },
     "winter": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     },
     "spring": {
      "status": "Not submitted",
-     "recordedAt": null,
-     "matchedOn": null
+     "recordedAt": null
     }
    }
   }

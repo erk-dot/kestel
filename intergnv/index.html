@@ -101,7 +101,6 @@
     .r-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; padding: 11px 18px; }
     .r-name { font-weight: 700; }
     .r-sub { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); }
-    .r-note { margin: 0 18px 10px; background: var(--wait-bg); color: var(--wait); font-size: .85rem; padding: 6px 10px; border-radius: 3px; }
 
     /* Status pills */
     .pill { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; padding: 4px 9px; border-radius: 3px; white-space: nowrap; }
@@ -125,7 +124,6 @@
     .p-list { list-style: none; margin-top: 10px; }
     .p-list > li { border-top: 1px solid var(--line); }
     .p-list .r-row { padding-left: 0; padding-right: 0; }
-    .p-list .r-note { margin-left: 0; margin-right: 0; }
 
     /* Legend + notes */
     .legend ul { list-style: none; display: grid; gap: 8px; }
@@ -151,7 +149,6 @@
       .tab[aria-selected="true"] { box-shadow: inset 0 -4px 0 var(--tan); }
       .t-panel { padding: 0; border-top: 1px solid var(--line); border-radius: 4px; }
       .r-row, .t-head, .respond { padding-left: 14px; padding-right: 14px; }
-      .r-note { margin-left: 14px; margin-right: 14px; }
       .respond .btn { justify-self: stretch; }
     }
   </style>
@@ -230,7 +227,7 @@
           </ul>
 
           <h3>Matching responses to players</h3>
-          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row records what it was matched on so mismatches are visible.</p>
+          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Picking the player from a list, as the form on this page does, avoids that.</p>
 
           <h3>Planned access for real data</h3>
           <ul>
@@ -283,7 +280,7 @@
     }
     function pill(status, t) { return el('span', 'pill s-' + kind(status, t), status); }
     function rec(p, t) {
-      return p.records[t.id] || { status: 'Not submitted', recordedAt: null, matchedOn: null };
+      return p.records[t.id] || { status: 'Not submitted', recordedAt: null };
     }
 
     // One row: used in the tournament roster (label = player) and the player view (label = tournament)
@@ -293,11 +290,10 @@
       g.appendChild(el('span', 'r-name', label));
       g.appendChild(pill(r.status, t));
       var sub = r.recordedAt
-        ? 'Recorded ' + fmtDT(r.recordedAt) + ' · matched on ' + r.matchedOn
+        ? 'Recorded ' + fmtDT(r.recordedAt)
         : 'No response yet · ' + (isOpen(t) ? 'form open until ' : 'form closed ') + fmtDate(t.deadline);
       g.appendChild(el('span', 'r-sub', sub));
       li.appendChild(g);
-      if (r.matchNote) li.appendChild(el('div', 'r-note', r.matchNote));
       return li;
     }
 
@@ -349,7 +345,7 @@
         }
         var p = pByCode(code);
         var now = new Date().toISOString();
-        p.records[t.id] = { status: choice.value, recordedAt: now, matchedOn: p.name + ' · chosen from roster' };
+        p.records[t.id] = { status: choice.value, recordedAt: now };
         receipt = { tid: t.id, code: code, name: p.name, status: choice.value, at: now, ref: refCode() };
         renderTournament(t.id);
         if (shownPlayer) renderPlayer(pByCode(shownPlayer));
