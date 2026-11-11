@@ -28,21 +28,15 @@
       --body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--body);
-      background: var(--panel);
-      color: var(--ink);
-      line-height: 1.5;
-      font-size: 16px;
-    }
+    body { font-family: var(--body); background: var(--panel); color: var(--ink); line-height: 1.5; font-size: 16px; }
     .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
 
     /* Header band */
     .top { background: var(--blue); color: var(--white); border-bottom: 6px solid var(--tan); }
     .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; }
     .top h1 { font-family: var(--head); font-weight: 900; font-size: 1.35rem; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; }
+    .top h1 small { display: block; font-weight: 500; font-size: .78rem; letter-spacing: .12em; color: var(--tan-light); margin-top: 2px; }
     .badge { font-family: var(--head); font-weight: 700; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; background: var(--tan); color: var(--ink); padding: 4px 10px; border-radius: 3px; white-space: nowrap; }
-
     .demo-strip { background: var(--tan-light); color: var(--ink); font-size: .9rem; }
     .demo-strip .wrap { padding-top: 8px; padding-bottom: 8px; }
     .demo-strip strong { font-family: var(--head); text-transform: uppercase; letter-spacing: .05em; font-size: .8rem; margin-right: 6px; }
@@ -51,56 +45,84 @@
     h2 { font-family: var(--head); font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
     .card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 18px; margin-bottom: 16px; }
     .intro p { color: var(--muted); }
-    .intro p + p { margin-top: 8px; }
+    .section-label { font-family: var(--head); font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 26px 0 8px; }
 
-    /* Lookup */
-    .lookup form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-    .lookup label { display: block; font-weight: 700; margin-top: 4px; }
-    .lookup input {
-      flex: 1 1 200px; min-width: 0; font: inherit; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .05em;
-      padding: 11px 12px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink);
+    /* Tournament tabs */
+    .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .tab {
+      flex: 0 0 auto; text-align: left; cursor: pointer; font: inherit;
+      background: var(--white); color: var(--ink); border: 1px solid var(--line); border-bottom: 4px solid var(--line);
+      border-radius: 4px 4px 0 0; padding: 8px 14px; min-width: 148px;
     }
-    .lookup input:focus { outline: none; border-color: var(--blue); }
-    .btn {
-      font-family: var(--head); font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em;
-      background: var(--blue); color: var(--white); border: 0; border-radius: 4px; padding: 12px 22px; cursor: pointer;
-    }
-    .btn:hover, .btn:focus-visible { background: var(--blue-dark); }
-    .hint { font-size: .88rem; color: var(--muted); margin-top: 8px; }
-    .hint button { font: inherit; background: none; border: 0; color: var(--blue); text-decoration: underline; cursor: pointer; padding: 0 2px; font-weight: 700; }
-    .error { color: var(--no); font-weight: 700; margin-top: 10px; }
+    .tab .t-name { display: block; font-family: var(--head); font-weight: 700; font-size: .92rem; line-height: 1.25; }
+    .tab .t-date { display: block; font-size: .8rem; color: var(--muted); }
+    .tab[aria-selected="true"] { background: var(--blue); color: var(--white); border-color: var(--blue); border-bottom-color: var(--tan); }
+    .tab[aria-selected="true"] .t-date { color: var(--tan-light); }
+    .tab:focus-visible { outline: 3px solid var(--tan); outline-offset: 2px; }
 
-    /* Player summary */
-    .player-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; border-left: 6px solid var(--blue); }
-    .player-head h2 { font-size: 1.4rem; margin-bottom: 2px; letter-spacing: .03em; }
-    .meta { color: var(--muted); font-size: .92rem; }
-    .counts { display: flex; gap: 6px; flex-wrap: wrap; }
-    .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 16px; }
+    .t-panel { border-top: 0; border-radius: 0 0 4px 4px; padding: 0; overflow: hidden; }
+    .t-head { padding: 16px 18px; border-bottom: 1px solid var(--line); border-left: 6px solid var(--blue); }
+    .t-head h2 { font-size: 1.3rem; letter-spacing: .03em; margin-bottom: 2px; }
+    .t-meta { color: var(--muted); font-size: .92rem; }
+    .t-meta strong { color: var(--ink); }
+    .counts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+
+    /* Form preview */
+    details.form-preview { border-bottom: 1px solid var(--line); background: #fafafa; }
+    details.form-preview > summary { cursor: pointer; padding: 11px 18px; font-weight: 700; color: var(--blue); font-size: .95rem; }
+    .mock { margin: 0 18px 16px; background: var(--white); border: 1px solid var(--line); border-top: 8px solid #673ab7; border-radius: 6px; padding: 16px; max-width: 520px; }
+    .mock-flag { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; background: var(--wait-bg); color: var(--wait); padding: 3px 8px; border-radius: 3px; margin-bottom: 10px; }
+    .mock h3 { font-family: var(--body); font-weight: 700; font-size: 1.15rem; }
+    .mock .m-desc { color: var(--muted); font-size: .88rem; margin: 4px 0 12px; }
+    .mock fieldset { border: 0; border-top: 1px solid var(--line); padding: 12px 0 4px; }
+    .mock legend, .mock label.q { display: block; font-size: .92rem; font-weight: 700; margin-bottom: 6px; padding: 0; }
+    .mock legend { float: left; width: 100%; }
+    .mock legend + * { clear: both; }
+    .mock input[type=text], .mock input[type=number], .mock select { font: inherit; font-size: .92rem; width: 100%; max-width: 280px; padding: 7px 8px; border: 1px solid var(--line); border-radius: 3px; background: #f7f7f7; color: var(--muted); }
+    .mock .opt { display: flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--muted); margin: 4px 0; }
+    .mock .btn[disabled] { opacity: .55; cursor: not-allowed; margin-top: 12px; }
+    .mock .m-foot { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+
+    /* Roster */
+    .roster { list-style: none; }
+    .roster > li { border-bottom: 1px solid var(--line); }
+    .roster > li:last-child { border-bottom: 0; }
+    .r-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; padding: 11px 18px; }
+    .r-name { font-weight: 700; }
+    .r-sub { grid-column: 1 / -1; font-size: .85rem; color: var(--muted); }
+    .r-note { margin: 0 18px 10px; background: var(--wait-bg); color: var(--wait); font-size: .85rem; padding: 6px 10px; border-radius: 3px; }
+    details.history > summary { cursor: pointer; padding: 0 18px 10px; font-size: .85rem; font-weight: 700; color: var(--blue); }
+    details.history ol { list-style: none; padding: 0 18px 10px; }
+    details.history li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; padding: 5px 0; border-top: 1px dashed var(--line); font-size: .85rem; color: var(--muted); }
+    details.history li .pill { opacity: .75; }
+    .replaced { font-style: italic; }
 
     /* Status pills */
-    .pill { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; padding: 4px 10px; border-radius: 3px; white-space: nowrap; }
+    .pill { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; padding: 4px 9px; border-radius: 3px; white-space: nowrap; }
     .s-available { color: var(--ok); background: var(--ok-bg); }
     .s-unavailable { color: var(--no); background: var(--no-bg); }
     .s-waiting { color: var(--wait); background: var(--wait-bg); }
     .s-missed { color: var(--closed); background: var(--closed-bg); }
 
-    /* Event rows */
-    .event { padding: 0; overflow: hidden; }
-    .event-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
-    .event-top h3 { font-family: var(--head); font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
-    .event-top .dates { color: var(--muted); font-size: .9rem; }
-    .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-    .fact { padding: 12px 18px; border-right: 1px solid var(--line); }
-    .fact:last-child { border-right: 0; }
-    .fact dt { font-family: var(--head); font-weight: 700; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-    .fact dd { font-size: .95rem; margin-top: 2px; overflow-wrap: anywhere; }
-    .note { background: var(--wait-bg); color: var(--wait); font-size: .88rem; padding: 8px 18px; border-top: 1px solid var(--line); }
-    details.history { border-top: 1px solid var(--line); background: #fafafa; }
-    details.history summary { cursor: pointer; padding: 10px 18px; font-size: .9rem; font-weight: 700; color: var(--blue); }
-    details.history ol { list-style: none; padding: 0 18px 12px; }
-    details.history li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; padding: 6px 0; border-top: 1px dashed var(--line); font-size: .9rem; color: var(--muted); }
-    details.history li .pill { opacity: .75; }
-    .replaced { font-style: italic; }
+    /* Lookup */
+    .lookup form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .lookup label { flex-basis: 100%; font-weight: 700; }
+    .lookup input { flex: 1 1 200px; min-width: 0; font: inherit; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .05em; padding: 11px 12px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); }
+    .lookup input:focus { outline: none; border-color: var(--blue); }
+    .btn { font-family: var(--head); font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; background: var(--blue); color: var(--white); border: 0; border-radius: 4px; padding: 12px 22px; cursor: pointer; }
+    .btn:hover:not([disabled]), .btn:focus-visible { background: var(--blue-dark); }
+    .hint { font-size: .88rem; color: var(--muted); margin-top: 8px; }
+    .hint button { font: inherit; background: none; border: 0; color: var(--blue); text-decoration: underline; cursor: pointer; padding: 0 2px; font-weight: 700; }
+    .error { color: var(--no); font-weight: 700; margin-top: 10px; }
+    .p-head { border-left: 6px solid var(--blue); }
+    .p-head h2 { font-size: 1.3rem; margin-bottom: 2px; letter-spacing: .03em; }
+    .p-list { list-style: none; margin-top: 10px; }
+    .p-list > li { border-top: 1px solid var(--line); }
+    .p-list .r-row { padding-left: 0; padding-right: 0; }
+    .p-list details.history > summary, .p-list details.history ol { padding-left: 0; padding-right: 0; }
+    .p-list .r-note { margin-left: 0; margin-right: 0; }
+
+    .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 6px; }
 
     /* Legend + notes */
     .legend ul { list-style: none; display: grid; gap: 8px; }
@@ -120,20 +142,23 @@
 
     @media (max-width: 640px) {
       .top h1 { font-size: 1.1rem; }
-      .facts { grid-template-columns: 1fr 1fr; }
-      .fact { border-right: 0; border-bottom: 1px solid var(--line); }
-      .fact:nth-child(odd) { border-right: 1px solid var(--line); }
-      .fact:nth-last-child(-n+2) { border-bottom: 0; }
-      .event-top { flex-direction: column; }
       .card { padding: 16px; }
-      .event { padding: 0; }
+      .tabs { flex-wrap: wrap; overflow: visible; gap: 6px; margin-bottom: 8px; }
+      .tab { flex: 1 1 calc(50% - 3px); min-width: 0; border-radius: 4px; border-bottom-width: 1px; }
+      .tab[aria-selected="true"] { box-shadow: inset 0 -4px 0 var(--tan); }
+      .t-panel { border-top: 1px solid var(--line); border-radius: 4px; }
+      .t-panel { padding: 0; }
+      .r-row, .t-head { padding-left: 14px; padding-right: 14px; }
+      details.form-preview > summary, details.history > summary, details.history ol { padding-left: 14px; padding-right: 14px; }
+      .mock { margin-left: 14px; margin-right: 14px; }
+      .r-note { margin-left: 14px; margin-right: 14px; }
     }
   </style>
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <h1>Availability Viewer</h1>
+      <h1>Availability Viewer<small id="team-label">U19 · Demo season</small></h1>
       <span class="badge">Prototype</span>
     </div>
   </header>
@@ -144,32 +169,35 @@
   <main>
     <div class="wrap">
       <section class="card intro">
-        <h2>Check what's on record</h2>
-        <p>This shows the tournament availability currently recorded for one player, which form it came from, and when it was received, so a family can confirm their answer actually landed.</p>
-        <p>If a newer form went out for the same event, only the newest form counts. Earlier answers are kept below each event so you can see what was replaced.</p>
+        <p>Pick a tournament to see the availability on record for every U19 player, which form it came from, and when it was received. If a newer form went out for the same tournament, only the newest one counts; replaced answers are kept under "Earlier versions".</p>
       </section>
 
+      <p class="updated" id="updated"></p>
+      <p class="section-label" id="tabs-label">Tournaments</p>
+      <div class="tabs" role="tablist" aria-labelledby="tabs-label" id="tabs"></div>
+      <section class="card t-panel" role="tabpanel" id="panel" aria-live="polite"></section>
+
+      <p class="section-label">One player, all tournaments</p>
       <section class="card lookup">
         <h2>Look up a player</h2>
         <form id="lookup" autocomplete="off">
-          <label for="code" style="flex-basis:100%">Player code</label>
-          <input id="code" name="code" type="text" inputmode="text" placeholder="e.g. DEMO-A" aria-describedby="code-hint" spellcheck="false" autocapitalize="characters">
+          <label for="code">Player code</label>
+          <input id="code" name="code" type="text" placeholder="e.g. DEMO-A" aria-describedby="code-hint" spellcheck="false" autocapitalize="characters">
           <button class="btn" type="submit">View</button>
         </form>
         <p class="hint" id="code-hint">Demo codes:
           <button type="button" data-code="DEMO-A">DEMO-A</button>
           <button type="button" data-code="DEMO-B">DEMO-B</button>
-          <button type="button" data-code="DEMO-C">DEMO-C</button>
+          <button type="button" data-code="DEMO-F">DEMO-F</button>
         </p>
         <p class="error" id="error" role="alert" hidden></p>
+        <div id="result" aria-live="polite"></div>
       </section>
-
-      <div id="result" aria-live="polite"></div>
 
       <section class="card legend">
         <h2>What the statuses mean</h2>
         <ul>
-          <li><span class="pill s-available">Available</span><span>The newest form for this event recorded the player as available.</span></li>
+          <li><span class="pill s-available">Available</span><span>The newest form for this tournament recorded the player as available.</span></li>
           <li><span class="pill s-unavailable">Unavailable</span><span>The newest form recorded the player as not available.</span></li>
           <li><span class="pill s-waiting">Not submitted</span><span>No answer on the newest form yet, and it is still open. There is still time.</span></li>
           <li><span class="pill s-missed">Not submitted</span><span>No answer on the newest form, and it has closed. Contact the team manager.</span></li>
@@ -190,18 +218,21 @@
           <h3>Where the records would come from</h3>
           <ul>
             <li>Each form's responses already land in a spreadsheet (Google Forms writes to a Google Sheet; Microsoft Forms exports to Excel).</li>
-            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps the newest form version per player per event and files older answers under "Earlier versions".</li>
+            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps the newest form version per player per tournament and files older answers under "Earlier versions".</li>
             <li>The page shows when the records were last updated, so nobody mistakes an old snapshot for the current state.</li>
           </ul>
 
-          <h3>Matching responses to players</h3>
-          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row shows what it was matched on so mismatches are visible. A real version should give each player a stable ID or code that the form asks for.</p>
+          <h3>The form preview</h3>
+          <p>Each tournament shows a non-working preview of its current form, so families can recognise which version is the one that counts. In a real version the button would open that form.</p>
 
-          <h3>Planned access method for real data</h3>
+          <h3>Matching responses to players</h3>
+          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row records what it was matched on so mismatches are visible. A real version should give each player a stable ID or code that the form asks for.</p>
+
+          <h3>Planned access for real data</h3>
           <ul>
-            <li>A Cloudflare Pages Function checks the family's code on the server and returns only that player's rows.</li>
-            <li>Records live in Cloudflare KV, not in a public file, so no one can download other players' data.</li>
-            <li>Codes would be issued per player by the team manager and could be reset if shared.</li>
+            <li><strong>Team roster by tournament:</strong> visible only to the U19 team's families after logging in with Cloudflare Access (email one-time code, list kept by the team manager).</li>
+            <li><strong>Player lookup:</strong> a Cloudflare Pages Function checks the player code on the server and returns only that player's history.</li>
+            <li>Records live in Cloudflare KV, not in a public file, so nobody outside the team can download them.</li>
           </ul>
         </details>
       </section>
@@ -218,7 +249,9 @@
   (function () {
     'use strict';
     var DATA_URL = '/intergnv/data.json';
-    var data = null;
+    var data = null, selected = null;
+    var tabsEl = document.getElementById('tabs');
+    var panel = document.getElementById('panel');
     var form = document.getElementById('lookup');
     var input = document.getElementById('code');
     var errorEl = document.getElementById('error');
@@ -230,95 +263,171 @@
       if (text != null) n.textContent = text;
       return n;
     }
-
-    var dtFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+    var dtFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    var dtFmtY = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
     var dFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    function fmtDateTime(s) { return s ? dtFmt.format(new Date(s)) : '—'; }
+    function fmtDT(s) { return dtFmt.format(new Date(s)); }
     function fmtDate(s) { return dFmt.format(new Date(s)); }
-    function isOpen(deadline) { return new Date(deadline).getTime() > Date.now(); }
+    function isOpen(t) { return new Date(t.deadline).getTime() > Date.now(); }
+    function tById(id) { return data.tournaments.filter(function (t) { return t.id === id; })[0]; }
 
-    function statusPill(status, deadline) {
-      var cls = 's-missed', label = status;
-      if (status === 'Available') cls = 's-available';
-      else if (status === 'Unavailable') cls = 's-unavailable';
-      else if (status === 'Not submitted') cls = (deadline && isOpen(deadline)) ? 's-waiting' : 's-missed';
-      return el('span', 'pill ' + cls, label);
+    function kind(status, t) {
+      if (status === 'Available') return 'available';
+      if (status === 'Unavailable') return 'unavailable';
+      return (t && isOpen(t)) ? 'waiting' : 'missed';
+    }
+    function pill(status, t) { return el('span', 'pill s-' + kind(status, t), status); }
+    function rec(p, t) {
+      return p.records[t.id] || { current: { status: 'Not submitted', recordedAt: null, form: t.form, matchedOn: null }, history: [] };
     }
 
-    function fact(label, value) {
-      var d = el('div', 'fact');
-      d.appendChild(el('dt', null, label));
-      d.appendChild(el('dd', null, value));
-      return d;
+    function historyBlock(r) {
+      var det = el('details', 'history');
+      det.appendChild(el('summary', null, 'Earlier versions (' + r.history.length + ') — replaced by ' + r.current.form));
+      var ol = el('ol');
+      r.history.slice().reverse().forEach(function (h) {
+        var li = el('li');
+        li.appendChild(el('span', null, h.form));
+        li.appendChild(pill(h.status, null));
+        li.appendChild(el('span', null, 'recorded ' + fmtDT(h.recordedAt)));
+        li.appendChild(el('span', 'replaced', '· no longer counts'));
+        ol.appendChild(li);
+      });
+      det.appendChild(ol);
+      return det;
     }
 
-    function renderEvent(ev) {
-      var c = ev.current;
-      var card = el('article', 'card event');
+    // One row: used both in the tournament roster (label = player) and the player view (label = tournament)
+    function row(label, r, t) {
+      var li = el('li');
+      var g = el('div', 'r-row');
+      g.appendChild(el('span', 'r-name', label));
+      g.appendChild(pill(r.current.status, t));
+      var c = r.current;
+      var sub = c.recordedAt
+        ? 'Recorded ' + fmtDT(c.recordedAt) + ' · ' + c.form + ' · matched on ' + c.matchedOn
+        : 'No response on ' + c.form + (isOpen(t) ? ' · form open until ' + fmtDate(t.deadline) : ' · form closed ' + fmtDate(t.deadline));
+      g.appendChild(el('span', 'r-sub', sub));
+      li.appendChild(g);
+      if (c.matchNote) li.appendChild(el('div', 'r-note', c.matchNote));
+      if (r.history && r.history.length) li.appendChild(historyBlock(r));
+      return li;
+    }
 
-      var top = el('div', 'event-top');
-      var titles = el('div');
-      titles.appendChild(el('h3', null, ev.event));
-      titles.appendChild(el('div', 'dates', ev.dates));
-      top.appendChild(titles);
-      top.appendChild(statusPill(c.status, ev.deadline));
-      card.appendChild(top);
+    function formPreview(t) {
+      var det = el('details', 'form-preview');
+      det.appendChild(el('summary', null, 'See the form that counts (' + t.form + ')'));
+      var m = el('div', 'mock');
+      m.appendChild(el('span', 'mock-flag', 'Preview only · not a working form'));
+      m.appendChild(el('h3', null, 'Tournament Availability — ' + t.name));
+      m.appendChild(el('p', 'm-desc', t.form + ' of ' + t.formsSent + ' sent for this tournament. ' + t.name + ' takes place ' + t.dates + '. A response is required even if you are not attending. Deadline: ' + fmtDate(t.deadline) + '.'));
 
-      var open = isOpen(ev.deadline);
-      var facts = el('dl', 'facts');
-      facts.appendChild(fact('Recorded', c.recordedAt ? fmtDateTime(c.recordedAt) : 'No response received'));
-      facts.appendChild(fact('From', c.form + ' (newest)'));
-      facts.appendChild(fact('Form status', (open ? 'Open until ' : 'Closed ') + fmtDate(ev.deadline)));
-      facts.appendChild(fact('Matched on', c.matchedOn || '—'));
-      card.appendChild(facts);
-
-      if (c.matchNote) card.appendChild(el('div', 'note', c.matchNote));
-
-      if (ev.history && ev.history.length) {
-        var det = el('details', 'history');
-        var n = ev.history.length;
-        det.appendChild(el('summary', null, 'Earlier versions (' + n + ') — replaced by ' + c.form));
-        var ol = el('ol');
-        ev.history.slice().reverse().forEach(function (h) {
-          var li = el('li');
-          li.appendChild(el('span', null, h.form));
-          li.appendChild(statusPill(h.status, null));
-          li.appendChild(el('span', null, 'recorded ' + fmtDateTime(h.recordedAt)));
-          li.appendChild(el('span', 'replaced', '· no longer counts'));
-          ol.appendChild(li);
-        });
-        det.appendChild(ol);
-        card.appendChild(det);
+      function q(labelText, control) {
+        var fs = el('fieldset');
+        var id = 'm-' + t.id + '-' + labelText.replace(/\W+/g, '').toLowerCase();
+        var lab = el('label', 'q', labelText); lab.htmlFor = id; control.id = id;
+        fs.appendChild(lab); fs.appendChild(control); return fs;
       }
-      return card;
+      var name = el('input'); name.type = 'text'; name.disabled = true; name.placeholder = 'Your answer';
+      m.appendChild(q('Player Full Name', name));
+      var by = el('input'); by.type = 'number'; by.disabled = true; by.placeholder = 'e.g. 2008';
+      m.appendChild(q('Player Birth Year', by));
+      var team = el('select'); team.disabled = true; var o = el('option', null, 'U19'); team.appendChild(o);
+      m.appendChild(q('Player Team', team));
+
+      var fs = el('fieldset');
+      fs.appendChild(el('legend', null, t.name + ': ' + t.dates));
+      ['Available', 'Unavailable'].forEach(function (v) {
+        var lab = el('label', 'opt');
+        var rb = el('input'); rb.type = 'radio'; rb.disabled = true; rb.name = 'm-' + t.id;
+        lab.appendChild(rb); lab.appendChild(document.createTextNode(v)); fs.appendChild(lab);
+      });
+      m.appendChild(fs);
+      var b = el('button', 'btn', 'Open form'); b.type = 'button'; b.disabled = true;
+      m.appendChild(b);
+      m.appendChild(el('p', 'm-foot', 'In a real version this button opens ' + t.form + '.'));
+      det.appendChild(m);
+      return det;
     }
 
-    function renderPlayer(p) {
-      result.textContent = '';
-      var head = el('section', 'card player-head');
-      var who = el('div');
-      who.appendChild(el('h2', null, p.name));
-      who.appendChild(el('div', 'meta', p.team + ' · Birth year ' + p.birthYear + ' · Code ' + p.code));
-      head.appendChild(who);
+    function renderTournament(id) {
+      selected = id;
+      var t = tById(id);
+      Array.prototype.forEach.call(tabsEl.children, function (b) {
+        var on = b.getAttribute('data-id') === id;
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+      });
+      panel.textContent = '';
+      panel.setAttribute('aria-labelledby', 'tab-' + id);
+
+      var head = el('div', 't-head');
+      head.appendChild(el('h2', null, t.name));
+      var meta = el('div', 't-meta');
+      meta.appendChild(document.createTextNode(t.dates + ' · Counting '));
+      meta.appendChild(el('strong', null, t.form));
+      meta.appendChild(document.createTextNode(' (' + t.formsSent + (t.formsSent === 1 ? ' form sent' : ' forms sent') + ') · ' +
+        (isOpen(t) ? 'Open until ' : 'Closed ') + fmtDate(t.deadline)));
+      head.appendChild(meta);
 
       var tally = { available: 0, unavailable: 0, waiting: 0, missed: 0 };
-      p.events.forEach(function (e) {
-        var s = e.current.status;
-        if (s === 'Available') tally.available++;
-        else if (s === 'Unavailable') tally.unavailable++;
-        else if (isOpen(e.deadline)) tally.waiting++;
-        else tally.missed++;
-      });
+      data.players.forEach(function (p) { tally[kind(rec(p, t).current.status, t)]++; });
       var counts = el('div', 'counts');
       counts.appendChild(el('span', 'pill s-available', tally.available + ' available'));
       counts.appendChild(el('span', 'pill s-unavailable', tally.unavailable + ' unavailable'));
       if (tally.waiting) counts.appendChild(el('span', 'pill s-waiting', tally.waiting + ' not submitted · open'));
       if (tally.missed) counts.appendChild(el('span', 'pill s-missed', tally.missed + ' not submitted · closed'));
       head.appendChild(counts);
-      result.appendChild(head);
+      panel.appendChild(head);
 
-      result.appendChild(el('p', 'updated', 'Records last updated ' + fmtDateTime(data.lastUpdated) + ' by ' + data.updatedBy + '.'));
-      p.events.forEach(function (e) { result.appendChild(renderEvent(e)); });
+      panel.appendChild(formPreview(t));
+
+      var ul = el('ul', 'roster');
+      data.players.forEach(function (p) { ul.appendChild(row(p.name, rec(p, t), t)); });
+      panel.appendChild(ul);
+
+      try { history.replaceState(null, '', '#' + id); } catch (e) {}
+    }
+
+    function buildTabs() {
+      data.tournaments.forEach(function (t) {
+        var b = el('button', 'tab');
+        b.type = 'button'; b.id = 'tab-' + t.id; b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'panel');
+        b.setAttribute('data-id', t.id);
+        b.appendChild(el('span', 't-name', t.name.replace(/^Demo /, '')));
+        b.appendChild(el('span', 't-date', t.dates));
+        b.addEventListener('click', function () { renderTournament(t.id); });
+        tabsEl.appendChild(b);
+      });
+      tabsEl.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var ids = data.tournaments.map(function (t) { return t.id; });
+        var i = ids.indexOf(selected) + (e.key === 'ArrowRight' ? 1 : -1);
+        i = (i + ids.length) % ids.length;
+        renderTournament(ids[i]);
+        document.getElementById('tab-' + ids[i]).focus();
+      });
+    }
+
+    function defaultTournament() {
+      var fromHash = location.hash.slice(1);
+      if (fromHash && tById(fromHash)) return fromHash;
+      var open = data.tournaments.filter(isOpen)[0];
+      return (open || data.tournaments[data.tournaments.length - 1]).id;
+    }
+
+    function renderPlayer(p) {
+      result.textContent = '';
+      var head = el('div', 'p-head card');
+      head.style.margin = '14px 0 0';
+      head.appendChild(el('h2', null, p.name));
+      head.appendChild(el('div', 't-meta', data.team + ' · Birth year ' + p.birthYear + ' · Code ' + p.code));
+      var ul = el('ul', 'p-list');
+      data.tournaments.forEach(function (t) {
+        ul.appendChild(row(t.name + ' (' + t.dates + ')', rec(p, t), t));
+      });
+      head.appendChild(ul);
+      result.appendChild(head);
     }
 
     function lookup(code) {
@@ -330,8 +439,7 @@
       if (!p) {
         result.textContent = '';
         errorEl.textContent = 'No player found for "' + code + '". Check the code with your team manager.';
-        errorEl.hidden = false;
-        return;
+        errorEl.hidden = false; return;
       }
       renderPlayer(p);
     }
@@ -343,8 +451,14 @@
 
     fetch(DATA_URL, { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function (j) { data = j; if (input.value) lookup(input.value); })
-      .catch(function () { errorEl.textContent = 'Could not load the demo records.'; errorEl.hidden = false; });
+      .then(function (j) {
+        data = j;
+        document.getElementById('team-label').textContent = j.team + ' · Demo season';
+        document.getElementById('updated').textContent = 'Records last updated ' + dtFmtY.format(new Date(j.lastUpdated)) + ' by ' + j.updatedBy + '.';
+        buildTabs();
+        renderTournament(defaultTournament());
+      })
+      .catch(function () { panel.textContent = 'Could not load the demo records.'; });
   })();
   </script>
 </body>
