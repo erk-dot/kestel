@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <title>Availability Viewer (Prototype)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #002abe;
+      --blue-dark: #001d85;
+      --tan: #c0a382;
+      --tan-light: #ddbb96;
+      --ink: #111111;
+      --muted: #555b66;
+      --panel: #f4f4f4;
+      --line: #d0d0d0;
+      --white: #ffffff;
+      --ok: #1e6b34;      --ok-bg: #e3f3e7;
+      --no: #a3241c;      --no-bg: #fbe6e4;
+      --wait: #7a4f00;    --wait-bg: #fff1cc;
+      --closed: #4a4f57;  --closed-bg: #e6e7ea;
+      --head: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      --body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--body);
+      background: var(--panel);
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header band */
+    .top { background: var(--blue); color: var(--white); border-bottom: 6px solid var(--tan); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; }
+    .top h1 { font-family: var(--head); font-weight: 900; font-size: 1.35rem; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; }
+    .badge { font-family: var(--head); font-weight: 700; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; background: var(--tan); color: var(--ink); padding: 4px 10px; border-radius: 3px; white-space: nowrap; }
+
+    .demo-strip { background: var(--tan-light); color: var(--ink); font-size: .9rem; }
+    .demo-strip .wrap { padding-top: 8px; padding-bottom: 8px; }
+    .demo-strip strong { font-family: var(--head); text-transform: uppercase; letter-spacing: .05em; font-size: .8rem; margin-right: 6px; }
+
+    main { padding: 24px 0 40px; }
+    h2 { font-family: var(--head); font-weight: 700; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 18px; margin-bottom: 16px; }
+    .intro p { color: var(--muted); }
+    .intro p + p { margin-top: 8px; }
+
+    /* Lookup */
+    .lookup form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .lookup label { display: block; font-weight: 700; margin-top: 4px; }
+    .lookup input {
+      flex: 1 1 200px; min-width: 0; font: inherit; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .05em;
+      padding: 11px 12px; border: 2px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink);
+    }
+    .lookup input:focus { outline: none; border-color: var(--blue); }
+    .btn {
+      font-family: var(--head); font-weight: 700; font-size: .95rem; text-transform: uppercase; letter-spacing: .08em;
+      background: var(--blue); color: var(--white); border: 0; border-radius: 4px; padding: 12px 22px; cursor: pointer;
+    }
+    .btn:hover, .btn:focus-visible { background: var(--blue-dark); }
+    .hint { font-size: .88rem; color: var(--muted); margin-top: 8px; }
+    .hint button { font: inherit; background: none; border: 0; color: var(--blue); text-decoration: underline; cursor: pointer; padding: 0 2px; font-weight: 700; }
+    .error { color: var(--no); font-weight: 700; margin-top: 10px; }
+
+    /* Player summary */
+    .player-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; border-left: 6px solid var(--blue); }
+    .player-head h2 { font-size: 1.4rem; margin-bottom: 2px; letter-spacing: .03em; }
+    .meta { color: var(--muted); font-size: .92rem; }
+    .counts { display: flex; gap: 6px; flex-wrap: wrap; }
+    .updated { font-size: .85rem; color: var(--muted); margin: -6px 0 16px; }
+
+    /* Status pills */
+    .pill { display: inline-block; font-family: var(--head); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; padding: 4px 10px; border-radius: 3px; white-space: nowrap; }
+    .s-available { color: var(--ok); background: var(--ok-bg); }
+    .s-unavailable { color: var(--no); background: var(--no-bg); }
+    .s-waiting { color: var(--wait); background: var(--wait-bg); }
+    .s-missed { color: var(--closed); background: var(--closed-bg); }
+
+    /* Event rows */
+    .event { padding: 0; overflow: hidden; }
+    .event-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+    .event-top h3 { font-family: var(--head); font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+    .event-top .dates { color: var(--muted); font-size: .9rem; }
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .fact { padding: 12px 18px; border-right: 1px solid var(--line); }
+    .fact:last-child { border-right: 0; }
+    .fact dt { font-family: var(--head); font-weight: 700; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .fact dd { font-size: .95rem; margin-top: 2px; overflow-wrap: anywhere; }
+    .note { background: var(--wait-bg); color: var(--wait); font-size: .88rem; padding: 8px 18px; border-top: 1px solid var(--line); }
+    details.history { border-top: 1px solid var(--line); background: #fafafa; }
+    details.history summary { cursor: pointer; padding: 10px 18px; font-size: .9rem; font-weight: 700; color: var(--blue); }
+    details.history ol { list-style: none; padding: 0 18px 12px; }
+    details.history li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; padding: 6px 0; border-top: 1px dashed var(--line); font-size: .9rem; color: var(--muted); }
+    details.history li .pill { opacity: .75; }
+    .replaced { font-style: italic; }
+
+    /* Legend + notes */
+    .legend ul { list-style: none; display: grid; gap: 8px; }
+    .legend li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+    .legend li span:last-child { color: var(--muted); font-size: .92rem; flex: 1 1 220px; }
+    .notes summary { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; cursor: pointer; font-size: 1.05rem; }
+    .notes h3 { font-family: var(--head); font-weight: 700; font-size: .95rem; margin: 16px 0 4px; }
+    .notes p, .notes li { font-size: .95rem; }
+    .notes ul { padding-left: 20px; }
+    .warn { border-left: 6px solid var(--no); background: var(--no-bg); padding: 12px 14px; margin-top: 14px; border-radius: 0 4px 4px 0; }
+    .warn strong { color: var(--no); }
+    code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .88em; background: var(--panel); padding: 1px 4px; border-radius: 3px; }
+
+    footer { background: var(--tan); color: var(--ink); border-top: 6px solid var(--blue); }
+    footer .wrap { padding-top: 18px; padding-bottom: 22px; font-size: .92rem; }
+    footer p { font-weight: 700; }
+
+    @media (max-width: 640px) {
+      .top h1 { font-size: 1.1rem; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .fact { border-right: 0; border-bottom: 1px solid var(--line); }
+      .fact:nth-child(odd) { border-right: 1px solid var(--line); }
+      .fact:nth-last-child(-n+2) { border-bottom: 0; }
+      .event-top { flex-direction: column; }
+      .card { padding: 16px; }
+      .event { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Availability Viewer</h1>
+      <span class="badge">Prototype</span>
+    </div>
+  </header>
+  <div class="demo-strip">
+    <div class="wrap"><strong>Demo data</strong>Every player, code and tournament on this page is made up.</div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <section class="card intro">
+        <h2>Check what's on record</h2>
+        <p>This shows the tournament availability currently recorded for one player, which form it came from, and when it was received, so a family can confirm their answer actually landed.</p>
+        <p>If a newer form went out for the same event, only the newest form counts. Earlier answers are kept below each event so you can see what was replaced.</p>
+      </section>
+
+      <section class="card lookup">
+        <h2>Look up a player</h2>
+        <form id="lookup" autocomplete="off">
+          <label for="code" style="flex-basis:100%">Player code</label>
+          <input id="code" name="code" type="text" inputmode="text" placeholder="e.g. DEMO-A" aria-describedby="code-hint" spellcheck="false" autocapitalize="characters">
+          <button class="btn" type="submit">View</button>
+        </form>
+        <p class="hint" id="code-hint">Demo codes:
+          <button type="button" data-code="DEMO-A">DEMO-A</button>
+          <button type="button" data-code="DEMO-B">DEMO-B</button>
+          <button type="button" data-code="DEMO-C">DEMO-C</button>
+        </p>
+        <p class="error" id="error" role="alert" hidden></p>
+      </section>
+
+      <div id="result" aria-live="polite"></div>
+
+      <section class="card legend">
+        <h2>What the statuses mean</h2>
+        <ul>
+          <li><span class="pill s-available">Available</span><span>The newest form for this event recorded the player as available.</span></li>
+          <li><span class="pill s-unavailable">Unavailable</span><span>The newest form recorded the player as not available.</span></li>
+          <li><span class="pill s-waiting">Not submitted</span><span>No answer on the newest form yet, and it is still open. There is still time.</span></li>
+          <li><span class="pill s-missed">Not submitted</span><span>No answer on the newest form, and it has closed. Contact the team manager.</span></li>
+        </ul>
+      </section>
+
+      <section class="card notes">
+        <details>
+          <summary>Build notes</summary>
+
+          <div class="warn">
+            <p><strong>This prototype is not private.</strong> All of the demo data sits in one public file, <code>data.json</code>, which anyone can open in a browser. The player code only filters what is shown on screen; it does not protect anything. That is acceptable here only because every record is fake. Real player data must not be loaded until a server-side access check exists (see below).</p>
+          </div>
+
+          <h3>The problem it addresses</h3>
+          <p>Tournament availability is collected with online forms. There is no confirmation email, and new versions of a form go out during the season, so a family can believe they responded while the record shows the player as unavailable because a later version was never filled in.</p>
+
+          <h3>Where the records would come from</h3>
+          <ul>
+            <li>Each form's responses already land in a spreadsheet (Google Forms writes to a Google Sheet; Microsoft Forms exports to Excel).</li>
+            <li>The team manager would update the records: export or link each form's response sheet, then run a small merge step that keeps the newest form version per player per event and files older answers under "Earlier versions".</li>
+            <li>The page shows when the records were last updated, so nobody mistakes an old snapshot for the current state.</li>
+          </ul>
+
+          <h3>Matching responses to players</h3>
+          <p>Forms that ask only for a typed name and birth year make matching fragile: one typo can make a submitted answer look like "Not submitted". Each row shows what it was matched on so mismatches are visible. A real version should give each player a stable ID or code that the form asks for.</p>
+
+          <h3>Planned access method for real data</h3>
+          <ul>
+            <li>A Cloudflare Pages Function checks the family's code on the server and returns only that player's rows.</li>
+            <li>Records live in Cloudflare KV, not in a public file, so no one can download other players' data.</li>
+            <li>Codes would be issued per player by the team manager and could be reset if shared.</li>
+          </ul>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Unofficial prototype built by a parent. Not affiliated with or endorsed by Inter Gainesville KF.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var DATA_URL = '/intergnv/data.json';
+    var data = null;
+    var form = document.getElementById('lookup');
+    var input = document.getElementById('code');
+    var errorEl = document.getElementById('error');
+    var result = document.getElementById('result');
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+
+    var dtFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+    var dFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    function fmtDateTime(s) { return s ? dtFmt.format(new Date(s)) : '—'; }
+    function fmtDate(s) { return dFmt.format(new Date(s)); }
+    function isOpen(deadline) { return new Date(deadline).getTime() > Date.now(); }
+
+    function statusPill(status, deadline) {
+      var cls = 's-missed', label = status;
+      if (status === 'Available') cls = 's-available';
+      else if (status === 'Unavailable') cls = 's-unavailable';
+      else if (status === 'Not submitted') cls = (deadline && isOpen(deadline)) ? 's-waiting' : 's-missed';
+      return el('span', 'pill ' + cls, label);
+    }
+
+    function fact(label, value) {
+      var d = el('div', 'fact');
+      d.appendChild(el('dt', null, label));
+      d.appendChild(el('dd', null, value));
+      return d;
+    }
+
+    function renderEvent(ev) {
+      var c = ev.current;
+      var card = el('article', 'card event');
+
+      var top = el('div', 'event-top');
+      var titles = el('div');
+      titles.appendChild(el('h3', null, ev.event));
+      titles.appendChild(el('div', 'dates', ev.dates));
+      top.appendChild(titles);
+      top.appendChild(statusPill(c.status, ev.deadline));
+      card.appendChild(top);
+
+      var open = isOpen(ev.deadline);
+      var facts = el('dl', 'facts');
+      facts.appendChild(fact('Recorded', c.recordedAt ? fmtDateTime(c.recordedAt) : 'No response received'));
+      facts.appendChild(fact('From', c.form + ' (newest)'));
+      facts.appendChild(fact('Form status', (open ? 'Open until ' : 'Closed ') + fmtDate(ev.deadline)));
+      facts.appendChild(fact('Matched on', c.matchedOn || '—'));
+      card.appendChild(facts);
+
+      if (c.matchNote) card.appendChild(el('div', 'note', c.matchNote));
+
+      if (ev.history && ev.history.length) {
+        var det = el('details', 'history');
+        var n = ev.history.length;
+        det.appendChild(el('summary', null, 'Earlier versions (' + n + ') — replaced by ' + c.form));
+        var ol = el('ol');
+        ev.history.slice().reverse().forEach(function (h) {
+          var li = el('li');
+          li.appendChild(el('span', null, h.form));
+          li.appendChild(statusPill(h.status, null));
+          li.appendChild(el('span', null, 'recorded ' + fmtDateTime(h.recordedAt)));
+          li.appendChild(el('span', 'replaced', '· no longer counts'));
+          ol.appendChild(li);
+        });
+        det.appendChild(ol);
+        card.appendChild(det);
+      }
+      return card;
+    }
+
+    function renderPlayer(p) {
+      result.textContent = '';
+      var head = el('section', 'card player-head');
+      var who = el('div');
+      who.appendChild(el('h2', null, p.name));
+      who.appendChild(el('div', 'meta', p.team + ' · Birth year ' + p.birthYear + ' · Code ' + p.code));
+      head.appendChild(who);
+
+      var tally = { available: 0, unavailable: 0, waiting: 0, missed: 0 };
+      p.events.forEach(function (e) {
+        var s = e.current.status;
+        if (s === 'Available') tally.available++;
+        else if (s === 'Unavailable') tally.unavailable++;
+        else if (isOpen(e.deadline)) tally.waiting++;
+        else tally.missed++;
+      });
+      var counts = el('div', 'counts');
+      counts.appendChild(el('span', 'pill s-available', tally.available + ' available'));
+      counts.appendChild(el('span', 'pill s-unavailable', tally.unavailable + ' unavailable'));
+      if (tally.waiting) counts.appendChild(el('span', 'pill s-waiting', tally.waiting + ' not submitted · open'));
+      if (tally.missed) counts.appendChild(el('span', 'pill s-missed', tally.missed + ' not submitted · closed'));
+      head.appendChild(counts);
+      result.appendChild(head);
+
+      result.appendChild(el('p', 'updated', 'Records last updated ' + fmtDateTime(data.lastUpdated) + ' by ' + data.updatedBy + '.'));
+      p.events.forEach(function (e) { result.appendChild(renderEvent(e)); });
+    }
+
+    function lookup(code) {
+      errorEl.hidden = true;
+      code = (code || '').trim().toUpperCase();
+      if (!code) { errorEl.textContent = 'Enter a player code.'; errorEl.hidden = false; return; }
+      if (!data) { errorEl.textContent = 'Records are still loading. Try again in a moment.'; errorEl.hidden = false; return; }
+      var p = data.players.filter(function (x) { return x.code === code; })[0];
+      if (!p) {
+        result.textContent = '';
+        errorEl.textContent = 'No player found for "' + code + '". Check the code with your team manager.';
+        errorEl.hidden = false;
+        return;
+      }
+      renderPlayer(p);
+    }
+
+    form.addEventListener('submit', function (e) { e.preventDefault(); lookup(input.value); });
+    document.querySelectorAll('[data-code]').forEach(function (b) {
+      b.addEventListener('click', function () { input.value = b.getAttribute('data-code'); lookup(input.value); });
+    });
+
+    fetch(DATA_URL, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) { data = j; if (input.value) lookup(input.value); })
+      .catch(function () { errorEl.textContent = 'Could not load the demo records.'; errorEl.hidden = false; });
+  })();
+  </script>
+</body>
+</html>

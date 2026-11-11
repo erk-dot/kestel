@@ -1,0 +1,96 @@
+{
+  "_note": "FAKE DEMO DATA ONLY. Every player, code, event and response here is made up. This file is public: anyone can open it. Never put real player data in it.",
+  "lastUpdated": "2026-11-10T19:45:00",
+  "updatedBy": "Team manager (demo)",
+  "players": [
+    {
+      "code": "DEMO-A",
+      "name": "Player A",
+      "team": "U16",
+      "birthYear": 2010,
+      "events": [
+        {
+          "event": "Demo Fall Classic",
+          "dates": "Oct 17 – 18, 2026",
+          "deadline": "2026-10-05T23:59:00",
+          "current": { "status": "Available", "recordedAt": "2026-09-28T20:14:00", "form": "Form v2", "matchedOn": "Player A · 2010" },
+          "history": [
+            { "status": "Unavailable", "recordedAt": "2026-09-12T08:31:00", "form": "Form v1", "matchedOn": "Player A · 2010" }
+          ]
+        },
+        {
+          "event": "Demo Thanksgiving Showcase",
+          "dates": "Nov 27 – 29, 2026",
+          "deadline": "2026-11-15T23:59:00",
+          "current": { "status": "Not submitted", "recordedAt": null, "form": "Form v4", "matchedOn": null },
+          "history": [
+            { "status": "Available", "recordedAt": "2026-10-02T18:05:00", "form": "Form v2", "matchedOn": "Player A · 2010" },
+            { "status": "Available", "recordedAt": "2026-10-20T21:40:00", "form": "Form v3", "matchedOn": "Player A · 2010" }
+          ]
+        },
+        {
+          "event": "Demo Winter Cup",
+          "dates": "Dec 11 – 13, 2026",
+          "deadline": "2026-11-25T23:59:00",
+          "current": { "status": "Unavailable", "recordedAt": "2026-11-03T07:52:00", "form": "Form v1", "matchedOn": "Player A · 2010" },
+          "history": []
+        }
+      ]
+    },
+    {
+      "code": "DEMO-B",
+      "name": "Player B",
+      "team": "U19",
+      "birthYear": 2008,
+      "events": [
+        {
+          "event": "Demo Fall Classic",
+          "dates": "Oct 17 – 18, 2026",
+          "deadline": "2026-10-05T23:59:00",
+          "current": { "status": "Not submitted", "recordedAt": null, "form": "Form v2", "matchedOn": null },
+          "history": []
+        },
+        {
+          "event": "Demo Thanksgiving Showcase",
+          "dates": "Nov 27 – 29, 2026",
+          "deadline": "2026-11-15T23:59:00",
+          "current": { "status": "Available", "recordedAt": "2026-11-08T16:22:00", "form": "Form v4", "matchedOn": "Player B · 2008" },
+          "history": [
+            { "status": "Unavailable", "recordedAt": "2026-10-01T12:10:00", "form": "Form v2", "matchedOn": "Player B · 2008" }
+          ]
+        },
+        {
+          "event": "Demo Spring Invitational",
+          "dates": "Mar 6 – 8, 2027",
+          "deadline": "2027-02-15T23:59:00",
+          "current": { "status": "Available", "recordedAt": "2026-11-09T19:03:00", "form": "Form v1", "matchedOn": "Plyer B · 2008", "matchNote": "Name typed differently on this response. Matched by the team manager." },
+          "history": []
+        }
+      ]
+    },
+    {
+      "code": "DEMO-C",
+      "name": "Player C",
+      "team": "U16",
+      "birthYear": 2011,
+      "events": [
+        {
+          "event": "Demo Thanksgiving Showcase",
+          "dates": "Nov 27 – 29, 2026",
+          "deadline": "2026-11-15T23:59:00",
+          "current": { "status": "Unavailable", "recordedAt": "2026-11-01T10:44:00", "form": "Form v4", "matchedOn": "Player C · 2011" },
+          "history": [
+            { "status": "Unavailable", "recordedAt": "2026-10-03T09:15:00", "form": "Form v2", "matchedOn": "Player C · 2011" }
+          ]
+        },
+        {
+          "event": "Demo Winter Cup",
+          "dates": "Dec 11 – 13, 2026",
+          "deadline": "2026-11-25T23:59:00",
+          "current": { "status": "Not submitted", "recordedAt": null, "form": "Form v1", "matchedOn": null },
+          "history": []
+        }
+      ]
+    }
+  ]
+}
