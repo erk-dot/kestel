@@ -115,6 +115,17 @@
     .gallery-item.hidden {
       display: none;
     }
+    /* Row-order masonry: script deals items into .masonry-col columns
+       left to right. Without JS, the CSS columns above still apply. */
+    .gallery.masonry {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--gap);
+    }
+    .masonry-col {
+      flex: 1 1 0;
+      min-width: 0;
+    }
     .gallery-item img {
       display: block;
       width: 100%;
@@ -290,6 +301,44 @@
       <button class="filter-btn" data-filter="urban">Urban / Miami</button>
     </div>
     <div class="gallery" id="gallery">
+      <!-- LATEST: newest batch goes at the very top, newest first.
+           The script below deals items into columns left to right, so
+           the first items in this list fill the top rows. -->
+
+      <!-- 2026-11-17 batch -->
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/great-egret-wood-stork-lily-pads.jpg" alt="Great egret and wood stork wading among lily pads" loading="lazy" />
+        <span class="caption">Great Egret &amp; Wood Stork</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/egyptian-goose-closeup.jpg" alt="Egyptian goose close-up walking on grass" loading="lazy" />
+        <span class="caption">Egyptian Goose</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/anhinga-female-wings-spread.jpg" alt="Female anhinga spreading its wings to dry on a bank" loading="lazy" />
+        <span class="caption">Anhinga</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/muscovy-duck-nest-down.jpg" alt="Muscovy duck sitting on a nest surrounded by down feathers" loading="lazy" />
+        <span class="caption">Muscovy Duck</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/wood-stork-great-egret-wading.jpg" alt="Wood stork and great egret wading side by side" loading="lazy" />
+        <span class="caption">Wood Stork &amp; Egret</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/anhinga-male-perched-branch.jpg" alt="Male anhinga perched on a pale branch over the water" loading="lazy" />
+        <span class="caption">Anhinga</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/egyptian-geese-walking-grass.jpg" alt="Two Egyptian geese walking across the grass" loading="lazy" />
+        <span class="caption">Egyptian Geese</span>
+      </div>
+      <div class="gallery-item" data-categories="birds">
+        <img src="photos/web/muscovy-ducks-flock-bank.jpg" alt="Flock of Muscovy ducks resting on a grassy bank" loading="lazy" />
+        <span class="caption">Muscovy Ducks</span>
+      </div>
+
       <!-- BIRDS -->
       <div class="gallery-item" data-categories="birds">
         <img src="photos/web/sandhill-crane-portrait-blur.jpg" alt="Sandhill crane portrait close-up" loading="lazy" />
@@ -461,38 +510,6 @@
       <div class="gallery-item" data-categories="birds">
         <img src="photos/web/screech-owl-tree-cavity.jpg" alt="Eastern screech owl peering from a tree cavity" loading="lazy" />
         <span class="caption">Screech Owl</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/great-egret-wood-stork-lily-pads.jpg" alt="Great egret and wood stork wading among lily pads" loading="lazy" />
-        <span class="caption">Great Egret &amp; Wood Stork</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/egyptian-goose-closeup.jpg" alt="Egyptian goose close-up walking on grass" loading="lazy" />
-        <span class="caption">Egyptian Goose</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/anhinga-female-wings-spread.jpg" alt="Female anhinga spreading its wings to dry on a bank" loading="lazy" />
-        <span class="caption">Anhinga</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/muscovy-duck-nest-down.jpg" alt="Muscovy duck sitting on a nest surrounded by down feathers" loading="lazy" />
-        <span class="caption">Muscovy Duck</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/wood-stork-great-egret-wading.jpg" alt="Wood stork and great egret wading side by side" loading="lazy" />
-        <span class="caption">Wood Stork &amp; Egret</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/anhinga-male-perched-branch.jpg" alt="Male anhinga perched on a pale branch over the water" loading="lazy" />
-        <span class="caption">Anhinga</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/egyptian-geese-walking-grass.jpg" alt="Two Egyptian geese walking across the grass" loading="lazy" />
-        <span class="caption">Egyptian Geese</span>
-      </div>
-      <div class="gallery-item" data-categories="birds">
-        <img src="photos/web/muscovy-ducks-flock-bank.jpg" alt="Flock of Muscovy ducks resting on a grassy bank" loading="lazy" />
-        <span class="caption">Muscovy Ducks</span>
       </div>
       <!-- REPTILES -->
 
@@ -873,6 +890,45 @@
     const allItems = Array.from(document.querySelectorAll('.gallery-item'));
     const noResults = document.getElementById('no-results');
     let activeFilter = 'all';
+    // Row-order masonry: deal visible items into columns left to right so
+    // the first items in the HTML (the newest batch) fill the top rows.
+    // Column count follows the CSS `columns` rules (count + min width).
+    const gallery = document.getElementById('gallery');
+    let colCount = 0;
+    function columnCount() {
+      const cs = getComputedStyle(gallery);
+      const maxCols = parseInt(cs.columnCount, 10);
+      const minWidth = parseFloat(cs.columnWidth);
+      const gap = parseFloat(cs.columnGap) || 0;
+      const avail = gallery.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      if (isNaN(minWidth)) return maxCols || 1;
+      const fit = Math.max(1, Math.floor((avail + gap) / (minWidth + gap)));
+      return isNaN(maxCols) ? fit : Math.min(maxCols, fit);
+    }
+    function layoutGallery(force) {
+      const n = columnCount();
+      if (n === colCount && !force) return;
+      colCount = n;
+      const cols = Array.from({ length: n }, () => {
+        const col = document.createElement('div');
+        col.className = 'masonry-col';
+        return col;
+      });
+      let i = 0;
+      allItems.forEach(item => {
+        // Hidden (filtered-out) items are display:none; park them in column 1.
+        if (item.classList.contains('hidden')) cols[0].appendChild(item);
+        else cols[i++ % n].appendChild(item);
+      });
+      gallery.replaceChildren(...cols);
+      gallery.classList.add('masonry');
+    }
+    let resizeFrame = 0;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => layoutGallery(false));
+    });
+    layoutGallery(true);
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         activeFilter = btn.dataset.filter;
@@ -886,6 +942,7 @@
           if (show) visible++;
         });
         noResults.style.display = visible === 0 ? 'block' : 'none';
+        layoutGallery(true);
       });
     });
     // Lightbox — only operates on visible items
