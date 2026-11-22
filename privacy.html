@@ -48,6 +48,33 @@
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
+    /* Bill's avatar, to the left of the page title. The row is padded on the
+       right by the avatar's width so the title text stays centred on wide screens. */
+    .title-row {
+      --av: clamp(52px, 7vw, 84px);
+      --av-gap: clamp(0.75rem, 2vw, 1.25rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--av-gap);
+      padding-right: calc(var(--av) + var(--av-gap));
+    }
+    .title-row .site-title { text-align: left; }
+    .site-avatar {
+      display: block;
+      flex: none;
+      width: var(--av);
+      height: var(--av);
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--accent-dim);
+      object-fit: cover;
+    }
+    .site-avatar-link { display: block; flex: none; border-radius: 50%; }
+    .site-avatar-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+    @media (max-width: 600px) {
+      .title-row { padding-right: 0; }
+    }
     .site-title {
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -140,7 +167,10 @@
 <body>
   <header>
     <p class="site-eyebrow">South Florida</p>
-    <h1 class="site-title">Privacy Policy</h1>
+    <div class="title-row">
+      <a class="site-avatar-link" href="/" aria-label="kestel.com home"><img class="site-avatar" src="/images/bill-avatar.jpg" width="120" height="120" alt="Bill Kestel" /></a>
+      <h1 class="site-title">Privacy Policy</h1>
+    </div>
     <p class="site-subtitle">Wildlife &amp; nature — by Bill Kestel</p>
   </header>
   <main>
