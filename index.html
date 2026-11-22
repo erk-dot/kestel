@@ -325,8 +325,7 @@
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="birds">Birds</button>
       <button class="filter-btn" data-filter="reptiles">Reptiles</button>
-      <button class="filter-btn" data-filter="sunsets">Sunsets</button>
-      <button class="filter-btn" data-filter="sunrises">Sunrises</button>
+      <button class="filter-btn" data-filter="sunrises sunsets">Sunrises / Sunsets</button>
       <button class="filter-btn" data-filter="landscapes">Landscapes</button>
       <button class="filter-btn" data-filter="urban">Urban / Miami</button>
     </div>
@@ -1113,7 +1112,8 @@
         let visible = 0;
         allItems.forEach(item => {
           const cats = item.dataset.categories || '';
-          const show = activeFilter === 'all' || cats.split(' ').includes(activeFilter);
+          // A button's data-filter can list several categories (e.g. "sunrises sunsets").
+          const show = activeFilter === 'all' || activeFilter.split(' ').some(f => cats.split(' ').includes(f));
           item.classList.toggle('hidden', !show);
           if (show) visible++;
         });
